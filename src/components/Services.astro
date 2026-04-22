@@ -1,0 +1,186 @@
+---
+const services = [
+  {
+    num: '01',
+    title: 'Sistemas Empresariales',
+    desc: 'Construimos software de gestión diseñado para los procesos únicos de tu empresa. Módulos de ventas, inventario, finanzas, RRHH y operaciones integrados en una sola plataforma.',
+    tags: ['ERP a medida', 'Módulos personalizados', 'Reportes y BI', 'Multi-sucursal'],
+    icon: `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="32" height="32" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="M4 14h32" stroke="currentColor" stroke-width="1.8"/><path d="M14 14v22M4 22h10M14 22h22M4 30h10M14 30h22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`
+  },
+  {
+    num: '02',
+    title: 'Desarrollo Web y Móvil',
+    desc: 'Plataformas web y aplicaciones móviles que funcionan. Desde portales de autoservicio para clientes hasta apps internas para tu equipo en campo.',
+    tags: ['Apps iOS y Android', 'Portales web', 'PWA', 'Panel de administración'],
+    icon: `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="26" height="18" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M2 20h26M10 28h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="28" y="10" width="10" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/><circle cx="33" cy="25" r="1" fill="currentColor"/></svg>`
+  },
+  {
+    num: '03',
+    title: 'Automatización de Procesos',
+    desc: 'Eliminamos tareas manuales y repetitivas con flujos automatizados. Desde la generación de reportes hasta la gestión de aprobaciones y notificaciones en tiempo real.',
+    tags: ['Flujos de trabajo', 'Notificaciones automáticas', 'Reportes programados', 'Reglas de negocio'],
+    icon: `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="1.8"/><path d="M20 10v10l6 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 6l4 4-4 4M32 6l-4 4 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+  },
+  {
+    num: '04',
+    title: 'Integraciones y APIs',
+    desc: 'Conectamos tu software con las herramientas que ya usas. Integramos ERPs, CRMs, pasarelas de pago, plataformas de envío, facturación electrónica y cualquier servicio externo.',
+    tags: ['REST & GraphQL', 'SAT / Facturación', 'Pasarelas de pago', 'CRMs y ERPs'],
+    icon: `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="20" r="5" stroke="currentColor" stroke-width="1.8"/><circle cx="30" cy="10" r="5" stroke="currentColor" stroke-width="1.8"/><circle cx="30" cy="30" r="5" stroke="currentColor" stroke-width="1.8"/><path d="M15 18l10-6M15 22l10 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`
+  },
+  
+  {
+    num: '05',
+    title: 'Mantenimiento y Soporte',
+    desc: 'Acompañamiento continuo post-lanzamiento. Actualizaciones, mejoras y atención directa. Nos hacemos cargo de que tu sistema funcione siempre.',
+    tags: ['SLA garantizado', 'Monitoreo 24/7', 'Actualizaciones', 'Soporte técnico'],
+    icon: `<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 4l14 7v10c0 9-6 17-14 19C12 38 6 30 6 21V11L20 4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 20l4 4 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+  }
+];
+---
+
+<section id="servicios" class="services">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="stag"><span class="stag-line"></span>Servicios</div>
+      <h2 class="stitle">Lo que <em>construimos</em> para ti</h2>
+      <p class="ssub">Desarrollamos software que se adapta a cómo trabaja tu empresa, no al revés.</p>
+    </div>
+
+    <div class="services-tabs reveal delay-1">
+      {services.map((s, i) => (
+        <button class={`stab ${i===0?'active':''}`} data-idx={i}>
+          <span class="stab-num">{s.num}</span>
+          <span class="stab-name">{s.title}</span>
+        </button>
+      ))}
+    </div>
+
+    <div class="services-panels">
+      {services.map((s, i) => (
+        <div class={`spanel ${i===0?'active':''}`} data-idx={i}>
+          <div class="sp-left">
+            <div class="sp-num">{s.num}</div>
+            <div class="sp-icon" set:html={s.icon}></div>
+            <h3 class="sp-title">{s.title}</h3>
+            <p class="sp-desc">{s.desc}</p>
+            <div class="sp-tags">
+              {s.tags.map(t => <span class="stag-pill">{t}</span>)}
+            </div>
+          </div>
+          <div class="sp-right">
+            <div class="sp-cta-wrap">
+              <h4>¿Necesitas este servicio?</h4>
+              <p>Cuéntanos tu caso y te decimos cómo podemos ayudarte.</p>
+              <a href="#contacto" class="sp-cta">Solicitar información →</a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+.services { padding: 7rem 2rem; background: var(--off-white); }
+.container { max-width: 1280px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 3rem; }
+.stag { display: inline-flex; align-items: center; gap: 0.7rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); margin-bottom: 1rem; }
+.stag-line { display: block; width: 22px; height: 2px; background: var(--blue); border-radius: 1px; }
+.stitle { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 3.8vw, 2.9rem); font-weight: 700; line-height: 1.15; color: var(--text-dark); margin-bottom: 0.8rem; }
+.stitle em { font-style: italic; font-weight: 400; color: var(--blue); }
+.ssub { font-size: 1rem; color: var(--text-muted); max-width: 500px; margin: 0 auto; line-height: 1.75; }
+
+.services-tabs {
+  display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center;
+  margin-bottom: 2rem;
+}
+.stab {
+  display: flex; align-items: center; gap: 0.5rem;
+  background: none; border: 1.5px solid var(--border);
+  padding: 0.58rem 1.15rem; border-radius: 100px;
+  cursor: pointer; transition: all 0.22s;
+  color: var(--text-muted); font-family: 'Outfit', sans-serif;
+}
+.stab-num { font-size: 0.66rem; font-weight: 700; color: var(--blue-light); opacity: 0.6; }
+.stab-name { font-size: 0.82rem; font-weight: 500; }
+.stab:hover { border-color: var(--blue); color: var(--blue); }
+.stab.active { background: var(--blue); border-color: var(--blue); color: white; }
+.stab.active .stab-num { color: rgba(255,255,255,0.55); opacity: 1; }
+
+.services-panels { }
+.spanel { display: none; }
+.spanel.active {
+  display: grid; grid-template-columns: 1.4fr 1fr; gap: 0;
+  background: white; border-radius: 16px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: 0 4px 32px rgba(59,91,215,0.07);
+  animation: panel-in 0.38s cubic-bezier(.16,1,.3,1) both;
+}
+@keyframes panel-in { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+
+.sp-left {
+  padding: 3rem;
+  background: linear-gradient(140deg, var(--blue-deeper) 0%, var(--slate-mid) 100%);
+  position: relative; overflow: hidden;
+}
+.sp-left::after {
+  content: ''; position: absolute; top: -80px; right: -80px;
+  width: 250px; height: 250px; border-radius: 50%;
+  background: rgba(59,91,215,0.28); filter: blur(70px);
+  pointer-events: none;
+}
+.sp-num {
+  font-family: 'Syne', sans-serif; font-size: 5.5rem; font-weight: 800;
+  color: rgba(255,255,255,0.04); line-height: 1;
+  position: absolute; top: 1.2rem; right: 1.8rem;
+}
+.sp-icon { width: 48px; height: 48px; color: var(--blue-pale); margin-bottom: 1.8rem; position: relative; z-index: 1; }
+.sp-icon :global(svg) { width: 100%; height: 100%; }
+.sp-title { font-family: 'Syne', sans-serif; font-size: 1.55rem; font-weight: 700; color: white; margin-bottom: 1rem; line-height: 1.2; position: relative; z-index: 1; }
+.sp-desc { font-size: 0.9rem; color: rgba(255,255,255,0.58); line-height: 1.78; margin-bottom: 1.8rem; position: relative; z-index: 1; }
+.sp-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; position: relative; z-index: 1; }
+.stag-pill {
+  font-size: 0.7rem; font-weight: 500;
+  background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.13);
+  color: rgba(255,255,255,0.65); padding: 0.28rem 0.75rem; border-radius: 100px;
+}
+
+.sp-right {
+  padding: 3rem; display: flex; align-items: center; justify-content: center;
+  background: white;
+}
+.sp-cta-wrap { max-width: 300px; }
+.sp-cta-wrap h4 { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.75rem; line-height: 1.3; }
+.sp-cta-wrap p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.8rem; }
+.sp-cta {
+  display: inline-block; background: var(--blue); color: white;
+  padding: 0.82rem 1.8rem; border-radius: 8px;
+  font-size: 0.88rem; font-weight: 600; text-decoration: none;
+  transition: all 0.22s; box-shadow: 0 4px 14px rgba(59,91,215,0.3);
+}
+.sp-cta:hover { background: var(--blue-dark); transform: translateY(-1px); }
+
+@media (max-width: 768px) {
+  .spanel.active { grid-template-columns: 1fr; }
+  .services-tabs { gap: 0.3rem; }
+  .stab-name { display: none; }
+  .stab.active .stab-name { display: block; }
+  .sp-left, .sp-right { padding: 2rem; }
+}
+</style>
+
+<script>
+const tabs = document.querySelectorAll('.stab');
+const panels = document.querySelectorAll('.spanel');
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const idx = tab.getAttribute('data-idx');
+    tabs.forEach(t => t.classList.remove('active'));
+    panels.forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.querySelector(`.spanel[data-idx="${idx}"]`)?.classList.add('active');
+  });
+});
+</script>

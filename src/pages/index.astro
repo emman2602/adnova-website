@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import Projects from '../components/Projects.astro';
+import Process from '../components/Process.astro';
+import About from '../components/About.astro';
+---
+<Layout title="ADNOVA — Software a Medida">
+  <Nav />
+  <main>
+    <Hero />
+    <Services />
+    <Projects />
+    <Process />
+    <About />
+  </main>
+</Layout>
+
+<script>
+const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+reveals.forEach(el => obs.observe(el));
+</script>

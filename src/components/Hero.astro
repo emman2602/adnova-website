@@ -1,0 +1,237 @@
+---
+---
+<section id="inicio" class="hero">
+  <div class="hero-bg">
+    <div class="bg-grid"></div>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <canvas id="particles-canvas"></canvas>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      Desarrollo de software · México
+    </div>
+    <h1 class="hero-title">
+      <span class="line">Soluciones tecnológicas</span>
+      <span class="line em">a tu medida</span>
+    </h1>
+    <p class="hero-sub">
+      En ADNOVA construimos sistemas, automatizamos procesos e integramos plataformas
+      para que tu empresa opere mejor, más rápido y sin fricciones.
+    </p>
+    <div class="hero-actions">
+      <a href="#servicios" class="btn-primary">Ver servicios →</a>
+      <a href="#proyectos" class="btn-ghost">Ver proyectos</a>
+    </div>
+    <div class="hero-stats">
+      
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="mockup-window">
+      <div class="mw-bar">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="mw-title">Sistema ERP · Dashboard</span>
+      </div>
+      <div class="mw-body">
+        <div class="dash-row">
+          <div class="kpi-card"><span class="kpi-n">$2.4M</span><span class="kpi-l">Ventas del mes</span><span class="kpi-trend up">+12%</span></div>
+          <div class="kpi-card"><span class="kpi-n">1,847</span><span class="kpi-l">Órdenes activas</span><span class="kpi-trend up">+8%</span></div>
+          <div class="kpi-card"><span class="kpi-n">94%</span><span class="kpi-l">Eficiencia ops.</span><span class="kpi-trend down">-2%</span></div>
+        </div>
+        <div class="chart-area">
+          <div class="chart-label">Ventas últimos 6 meses</div>
+          <div class="chart-bars">
+            <div class="bar" style="--h:55%"><span>Feb</span></div>
+            <div class="bar" style="--h:70%"><span>Mar</span></div>
+            <div class="bar" style="--h:48%"><span>Abr</span></div>
+            <div class="bar" style="--h:82%"><span>May</span></div>
+            <div class="bar" style="--h:68%"><span>Jun</span></div>
+            <div class="bar active" style="--h:91%"><span>Jul</span></div>
+          </div>
+        </div>
+        <div class="table-area">
+          <div class="table-row header"><span>Producto</span><span>Stock</span><span>Estado</span></div>
+          <div class="table-row"><span>Producto A</span><span>342</span><span class="badge green">OK</span></div>
+          <div class="table-row"><span>Producto B</span><span>18</span><span class="badge yellow">Bajo</span></div>
+          <div class="table-row"><span>Producto C</span><span>205</span><span class="badge green">OK</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--slate) 0%, var(--slate-mid) 45%, var(--blue-deeper) 75%, var(--blue-dark) 100%);
+  position: relative; overflow: hidden;
+  display: grid; grid-template-columns: 1fr 1fr;
+  align-items: center; gap: 3rem;
+  padding: 0 4rem; padding-top: 68px;
+}
+.hero-bg { position: absolute; inset: 0; pointer-events: none; }
+.bg-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(59,91,215,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59,91,215,0.07) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.bg-orb { position: absolute; border-radius: 50%; filter: blur(90px); }
+.orb-1 { width: 500px; height: 500px; background: rgba(59,91,215,0.22); top: -120px; right: -60px; animation: float 9s ease-in-out infinite; }
+.orb-2 { width: 280px; height: 280px; background: rgba(107,135,232,0.18); bottom: 5%; left: 3%; animation: float 11s ease-in-out infinite reverse; }
+#particles-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+@keyframes float { 0%,100%{transform:translate(0,0)} 50%{transform:translate(18px,-18px)} }
+
+.hero-content { position: relative; z-index: 2; padding: 5rem 0; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  background: rgba(59,91,215,0.22); border: 1px solid rgba(107,135,232,0.35);
+  color: var(--blue-pale); padding: 0.42rem 1rem; border-radius: 100px;
+  font-size: 0.77rem; font-weight: 500; margin-bottom: 1.8rem;
+  animation: fadeUp 0.8s ease both;
+}
+.badge-dot {
+  width: 7px; height: 7px; border-radius: 50%; background: #4ade80;
+  box-shadow: 0 0 8px #4ade80; animation: pulse-g 2s ease infinite;
+}
+@keyframes pulse-g { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(0.8)} }
+.hero-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2.6rem, 4.8vw, 4.4rem);
+  font-weight: 800; line-height: 1.06; color: white; margin-bottom: 1.6rem;
+}
+.hero-title .line { display: block; animation: fadeUp 0.8s ease both; }
+.hero-title .line:nth-child(2) { animation-delay: 0.1s; }
+.hero-title .em { animation-delay: 0.2s; font-style: italic; font-weight: 400; color: var(--blue-pale); }
+.hero-sub {
+  font-size: 1rem; color: rgba(255,255,255,0.6); line-height: 1.82;
+  max-width: 500px; margin-bottom: 2.2rem;
+  animation: fadeUp 0.8s 0.3s ease both;
+}
+.hero-actions { display: flex; gap: 1rem; margin-bottom: 2.8rem; animation: fadeUp 0.8s 0.4s ease both; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--blue); color: white;
+  padding: 0.82rem 1.9rem; border-radius: 8px;
+  font-weight: 600; font-size: 0.9rem; text-decoration: none;
+  box-shadow: 0 4px 20px rgba(59,91,215,0.4); transition: all 0.25s;
+}
+.btn-primary:hover { background: var(--blue-light); transform: translateY(-2px); }
+.btn-ghost {
+  border: 1.5px solid rgba(255,255,255,0.22); color: rgba(255,255,255,0.82);
+  padding: 0.82rem 1.9rem; border-radius: 8px;
+  font-weight: 500; font-size: 0.9rem; text-decoration: none; transition: all 0.25s;
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,0.55); color: white; }
+.hero-stats { display: flex; gap: 2.2rem; align-items: center; animation: fadeUp 0.8s 0.5s ease both; }
+.stat-item { text-align: center; }
+.stat-n { font-family: 'Syne', sans-serif; font-size: 2.2rem; font-weight: 800; color: white; }
+.stat-s { font-family: 'Syne', sans-serif; font-size: 1.3rem; color: var(--blue-light); font-weight: 700; }
+.stat-l { display: block; font-size: 0.7rem; color: rgba(255,255,255,0.38); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.2rem; }
+.stat-sep { width: 1px; height: 36px; background: rgba(255,255,255,0.1); }
+
+/* MOCKUP */
+.hero-visual { position: relative; z-index: 2; padding: 5rem 0; animation: fadeUp 0.9s 0.3s ease both; }
+.mockup-window {
+  background: #0d1117; border: 1px solid rgba(59,91,215,0.3);
+  border-radius: 14px; overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(59,91,215,0.12);
+  animation: float-slow 6s ease-in-out infinite;
+}
+@keyframes float-slow { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+.mw-bar {
+  background: #161b22; padding: 0.75rem 1rem;
+  display: flex; align-items: center; gap: 0.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.dot { width: 11px; height: 11px; border-radius: 50%; }
+.dot.r { background: #ff5f57; }
+.dot.y { background: #ffbd2e; }
+.dot.g { background: #28c840; }
+.mw-title { margin-left: 0.5rem; font-size: 0.75rem; color: rgba(255,255,255,0.35); font-family: 'SF Mono', monospace; }
+.mw-body { padding: 1.2rem; display: flex; flex-direction: column; gap: 1rem; }
+.dash-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.75rem; }
+.kpi-card {
+  background: #161b22; border: 1px solid rgba(59,91,215,0.2);
+  border-radius: 8px; padding: 0.85rem; display: flex; flex-direction: column; gap: 0.18rem;
+}
+.kpi-n { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; color: white; }
+.kpi-l { font-size: 0.65rem; color: rgba(255,255,255,0.35); }
+.kpi-trend { font-size: 0.68rem; font-weight: 600; margin-top: 0.25rem; }
+.kpi-trend.up { color: #4ade80; }
+.kpi-trend.down { color: #f87171; }
+.chart-area { background: #161b22; border: 1px solid rgba(59,91,215,0.15); border-radius: 8px; padding: 1rem; }
+.chart-label { font-size: 0.68rem; color: rgba(255,255,255,0.35); margin-bottom: 0.75rem; }
+.chart-bars { display: flex; align-items: flex-end; gap: 6px; height: 64px; }
+.bar {
+  flex: 1; background: rgba(59,91,215,0.35); border-radius: 3px 3px 0 0;
+  height: var(--h); transition: background 0.2s; position: relative;
+  display: flex; align-items: flex-end; justify-content: center;
+}
+.bar span { font-size: 0.58rem; color: rgba(255,255,255,0.3); padding-bottom: 2px; position: absolute; bottom: -16px; }
+.bar.active { background: var(--blue); }
+.table-area { background: #161b22; border: 1px solid rgba(59,91,215,0.15); border-radius: 8px; overflow: hidden; }
+.table-row {
+  display: grid; grid-template-columns: 1fr 60px 60px;
+  padding: 0.5rem 0.85rem; font-size: 0.7rem;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.table-row.header { color: rgba(255,255,255,0.3); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.table-row:not(.header) { color: rgba(255,255,255,0.7); }
+.badge { display: inline-block; font-size: 0.6rem; font-weight: 600; padding: 0.15rem 0.45rem; border-radius: 100px; }
+.badge.green { background: rgba(74,222,128,0.15); color: #4ade80; }
+.badge.yellow { background: rgba(251,191,36,0.15); color: #fbbf24; }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+
+@media (max-width: 1024px) {
+  .hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 4rem; }
+  .hero-visual { display: none; }
+}
+</style>
+
+<script>
+const counters = document.querySelectorAll('.stat-n');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      const el = e.target as HTMLElement;
+      const target = parseInt(el.dataset.target||'0');
+      let cur = 0; const step = target/60;
+      const t = setInterval(()=>{ cur+=step; if(cur>=target){cur=target;clearInterval(t);} el.textContent=Math.floor(cur).toString(); }, 22);
+      obs.unobserve(el);
+    }
+  });
+},{threshold:0.5});
+counters.forEach(c=>obs.observe(c));
+
+const canvas = document.getElementById('particles-canvas') as HTMLCanvasElement;
+if(canvas){
+  const ctx = canvas.getContext('2d')!;
+  const resize = ()=>{ canvas.width=canvas.offsetWidth; canvas.height=canvas.offsetHeight; };
+  resize(); window.addEventListener('resize',resize);
+  const pts: {x:number,y:number,vx:number,vy:number}[] = [];
+  for(let i=0;i<50;i++) pts.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35});
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    pts.forEach(p=>{
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0||p.x>canvas.width)p.vx*=-1;
+      if(p.y<0||p.y>canvas.height)p.vy*=-1;
+      ctx.beginPath(); ctx.arc(p.x,p.y,1.5,0,Math.PI*2);
+      ctx.fillStyle='rgba(107,135,232,0.25)'; ctx.fill();
+    });
+    pts.forEach((p,i)=>pts.slice(i+1).forEach(q=>{
+      const d=Math.hypot(p.x-q.x,p.y-q.y);
+      if(d<110){ ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y);
+        ctx.strokeStyle=`rgba(59,91,215,${0.1*(1-d/110)})`; ctx.lineWidth=0.5; ctx.stroke(); }
+    }));
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+</script>

@@ -1,0 +1,123 @@
+---
+---
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#inicio" class="nav-logo">
+      <span class="logo-mark">AD</span><span class="logo-text">NOVA</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="#contacto" class="nav-cta">Solicitar propuesta →</a>
+    <button class="hamburger" id="hamburger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <ul>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="#contacto" class="nav-cta-mobile">Solicitar propuesta →</a>
+  </div>
+</nav>
+
+<style>
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 0 2rem;
+  transition: background 0.35s, box-shadow 0.35s;
+}
+nav.scrolled {
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 var(--border), 0 8px 32px rgba(59,91,215,0.07);
+}
+.nav-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 68px;
+}
+.nav-logo { display: flex; text-decoration: none; }
+.logo-mark {
+  background: var(--blue); color: white;
+  font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 800;
+  padding: 0.28rem 0.42rem; border-radius: 4px 0 0 4px; letter-spacing: 0.04em;
+}
+.logo-text {
+  background: var(--text-dark); color: white;
+  font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700;
+  padding: 0.28rem 0.42rem; border-radius: 0 4px 4px 0; letter-spacing: 0.08em;
+}
+nav.scrolled .logo-text { background: var(--text-dark); }
+.nav-links { display: flex; gap: 2.2rem; list-style: none; }
+.nav-links a {
+  font-size: 0.84rem; font-weight: 500; color: rgba(255,255,255,0.82);
+  text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover { color: white; }
+nav.scrolled .nav-links a { color: var(--text-mid); }
+nav.scrolled .nav-links a:hover { color: var(--blue); }
+.nav-cta {
+  background: white; color: var(--blue);
+  padding: 0.52rem 1.2rem; border-radius: 6px;
+  font-size: 0.82rem; font-weight: 600; text-decoration: none;
+  border: 1.5px solid white; transition: all 0.22s;
+}
+.nav-cta:hover { background: var(--blue); color: white; border-color: var(--blue); }
+nav.scrolled .nav-cta { background: var(--blue); color: white; border-color: var(--blue); }
+nav.scrolled .nav-cta:hover { background: var(--blue-dark); }
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 4px;
+}
+.hamburger span { display: block; width: 22px; height: 2px; background: white; border-radius: 2px; transition: all 0.3s; }
+nav.scrolled .hamburger span { background: var(--text-dark); }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mobile-menu {
+  display: none; background: white; padding: 1.5rem 2rem 2rem;
+  border-top: 1px solid var(--border);
+  box-shadow: 0 20px 40px rgba(59,91,215,0.1);
+}
+.mobile-menu.open { display: block; }
+.mobile-menu ul { list-style: none; margin-bottom: 1.5rem; }
+.mobile-menu ul li { border-bottom: 1px solid var(--border); }
+.mobile-menu ul li a { display: block; padding: 0.9rem 0; color: var(--text-dark); text-decoration: none; font-weight: 500; }
+.nav-cta-mobile {
+  display: inline-block; background: var(--blue); color: white;
+  padding: 0.75rem 1.5rem; border-radius: 6px;
+  font-weight: 600; font-size: 0.9rem; text-decoration: none;
+}
+@media (max-width: 900px) {
+  .nav-links, .nav-cta { display: none; }
+  .hamburger { display: flex; }
+}
+</style>
+
+<script>
+const navbar = document.getElementById('navbar');
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+window.addEventListener('scroll', () => {
+  navbar?.classList.toggle('scrolled', window.scrollY > 20);
+});
+hamburger?.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu?.classList.toggle('open');
+});
+mobileMenu?.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger?.classList.remove('open');
+    mobileMenu?.classList.remove('open');
+  });
+});
+</script>
