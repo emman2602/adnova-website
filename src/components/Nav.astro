@@ -34,6 +34,7 @@ nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   padding: 0 2rem;
   transition: background 0.35s, box-shadow 0.35s;
+  background-color: white;
 }
 nav.scrolled {
   background: rgba(255,255,255,0.97);
@@ -59,14 +60,14 @@ nav.scrolled {
 nav.scrolled .logo-text { background: var(--text-dark); }
 .nav-links { display: flex; gap: 2.2rem; list-style: none; }
 .nav-links a {
-  font-size: 0.84rem; font-weight: 500; color: rgba(255,255,255,0.82);
+  font-size: 0.84rem; font-weight: 500; color: var(--text-mid);
   text-decoration: none; transition: color 0.2s;
 }
-.nav-links a:hover { color: white; }
+.nav-links a:hover { color: var(--blue) }
 nav.scrolled .nav-links a { color: var(--text-mid); }
 nav.scrolled .nav-links a:hover { color: var(--blue); }
 .nav-cta {
-  background: white; color: var(--blue);
+  background:var(--blue); color: var(--white);
   padding: 0.52rem 1.2rem; border-radius: 6px;
   font-size: 0.82rem; font-weight: 600; text-decoration: none;
   border: 1.5px solid white; transition: all 0.22s;
@@ -78,7 +79,7 @@ nav.scrolled .nav-cta:hover { background: var(--blue-dark); }
   display: none; flex-direction: column; gap: 5px;
   background: none; border: none; cursor: pointer; padding: 4px;
 }
-.hamburger span { display: block; width: 22px; height: 2px; background: white; border-radius: 2px; transition: all 0.3s; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--text-dark); border-radius: 2px; transition: all 0.3s; }
 nav.scrolled .hamburger span { background: var(--text-dark); }
 .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; }
