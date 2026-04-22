@@ -1,0 +1,15 @@
+# Dependencias de Node
+node_modules/
+
+# Archivos generados por Astro
+dist/
+.astro/
+
+# Variables de entorno (Credenciales, contraseñas, APIs)
+.env
+.env.*
+!.env.example
+
+# Archivos del sistema operativo (comunes si trabajas en Mac o Windows)
+.DS_Store
+Thumbs.db
