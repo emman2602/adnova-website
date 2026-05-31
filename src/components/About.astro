@@ -1,91 +1,83 @@
 ---
-const differentials = [
-  { title: 'Código que escala', desc: 'Arquitecturas diseñadas para crecer. Evitamos la deuda técnica que después cuesta el triple resolver.' },
-  { title: 'Comunicación directa, sin intermediarios', desc: 'Trabajas con quien desarrolla. Sin cuentas comerciales que traduzcan mal tus requerimientos.' },
-  { title: 'Transparencia total', desc: 'Repositorio propio, tablero de tareas y reuniones semanales de seguimiento. Sin cajas negras.' },
-  { title: 'Seguridad desde el diseño', desc: 'Buenas prácticas de seguridad aplicadas en cada capa del sistema desde el principio.' },
-  { title: 'Entregas en tiempo', desc: 'Sprints definidos y cumplidos. Te damos visibilidad real del avance en todo momento.' },
-  { title: 'Soporte post-entrega', desc: 'No desaparecemos al entregar. Acompañamos el arranque y el mantenimiento a largo plazo.' },
-];
+
 ---
 
-<section id="nosotros" class="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-left reveal-left">
-        <div class="stag"><span class="stag-line"></span>Por qué ADNOVA</div>
-        <h2 class="stitle">Comprometidos con<br>el <em>resultado real</em> de<br>tu proyecto</h2>
-        <p class="about-desc">
-          ADNOVA Software Solutions es una empresa mexicana de desarrollo de software enfocada en soluciones empresariales a medida. 
-          Trabajamos principalmente con PyMEs y empresas en crecimiento que necesitan tecnología adaptada a su operación real.
-          <br><br>
-          Somos un equipo compacto y técnicamente sólido. Eso nos permite responder rápido, comunicarnos sin intermediarios y mantener la calidad en cada proyecto sin la burocracia de las grandes agencias.
-        </p>
-        <a href="#contacto" class="about-cta">Hablemos de tu proyecto →</a>
-        <div class="tech-stack">
-          <span class="ts-label">Tecnologías que dominamos</span>
-          <div class="ts-items">
-            <span>React</span><span>Node.js</span><span>Python</span>
-            <span>PostgreSQL</span><span>Spring Boot</span><span>Docker</span><span>Laravel</span>
-          </div>
-        </div>
-      </div>
-      <div class="about-right">
-        <div class="diff-grid">
-          {differentials.map((d, i) => (
-            <div class={`diff-card reveal delay-${(i % 3) + 1}`}>
-              <div class="dc-num">0{i+1}</div>
-              <h4 class="dc-title">{d.title}</h4>
-              <p class="dc-desc">{d.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+<section id="empresa" class="about-section source-container reveal">
+  <aside>
+    <h3>Somos una empresa de software enfocado en pequeñas y medianas empresa</h3>
+
+    <ul>
+      <li>Oaxaca, México</li>
+      <li>Atención remota</li>
+      <li>Sistemas a medida</li>
+      <li>Automatización</li>
+      <li>Soporte continuo</li>
+    </ul>
+  </aside>
+
+  <div>
+    <h2>
+      ADNOVA nace para ayudar a negocios que ya no pueden seguir dependiendo de
+      hojas de cálculo, procesos manuales y herramientas desconectadas.
+    </h2>
+
+    <a href="#contacto" class="dark-button">
+      Sobre nosotros
+      <span>↗</span>
+    </a>
   </div>
 </section>
 
 <style>
-  .about { padding: 7rem 2rem; background: white; }
-  .container { max-width: 1280px; margin: 0 auto; }
-  .about-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 6rem; align-items: center; }
-  
-  .stag { display: inline-flex; align-items: center; gap: 0.7rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); margin-bottom: 1rem; }
-  .stag-line { display: block; width: 22px; height: 2px; background: var(--blue); border-radius: 1px; }
-  
-  .stitle { font-family: 'Syne', sans-serif; font-size: clamp(1.9rem, 3.5vw, 2.7rem); font-weight: 700; line-height: 1.15; color: var(--text-dark); margin-bottom: 1.1rem; }
-  .stitle em { font-style: italic; font-weight: 400; color: var(--blue); }
-  
-  .about-desc { font-size: 0.95rem; color: var(--text-mid); line-height: 1.82; margin-bottom: 1.8rem; }
-  
-  .about-cta {
-    display: inline-block; background: var(--blue); color: white;
-    padding: 0.82rem 1.8rem; border-radius: 8px; font-size: 0.88rem; font-weight: 600;
-    text-decoration: none; margin-bottom: 2.2rem;
-    box-shadow: 0 4px 14px rgba(59,91,215,0.3); transition: all 0.22s;
-  }
-  .about-cta:hover { background: var(--blue-dark); transform: translateY(-1px); }
-
-  .ts-label { display: block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.65rem; }
-  .ts-items { display: flex; flex-wrap: wrap; gap: 0.45rem; }
-  .ts-items span {
-    font-size: 0.75rem; font-weight: 600; background: var(--blue-ghost);
-    color: var(--text-mid); border: 1px solid var(--border);
-    padding: 0.28rem 0.75rem; border-radius: 100px;
+  .about-section {
+    display: grid;
+    grid-template-columns: 0.25fr 0.75fr;
+    gap: 80px;
+    padding: 86px 34px;
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
   }
 
-  .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .diff-card {
-    background: var(--off-white); border: 1px solid var(--border);
-    border-radius: 10px; padding: 1.4rem; transition: all 0.25s;
+  .about-section aside h3 {
+    margin: 0 0 34px;
+    font-size: 21px;
+    line-height: 1.25;
+    font-weight: 720;
+    letter-spacing: -0.045em;
   }
-  .diff-card:hover { border-color: var(--blue); box-shadow: 0 6px 24px rgba(59,91,215,0.09); transform: translateY(-2px); }
-  .dc-num { font-family: 'Syne', sans-serif; font-size: 0.65rem; font-weight: 800; color: var(--blue-light); opacity: 0.6; margin-bottom: 0.6rem; }
-  .dc-title { font-size: 0.9rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.4rem; }
-  .dc-desc { font-size: 0.8rem; color: var(--text-muted); line-height: 1.65; }
 
-  @media (max-width: 900px) {
-    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .diff-grid { grid-template-columns: 1fr; }
+  .about-section ul {
+    list-style: square;
+    padding-left: 18px;
+    margin: 0;
+    color: var(--ink);
+    font-size: 18px;
+    line-height: 1.55;
+  }
+
+  .about-section h2 {
+    max-width: 1180px;
+    margin: 0;
+    font-size: var(--text-section);
+    line-height: 1.04;
+    font-weight: var(--weight-heading);
+    letter-spacing: -0.06em;
+  }
+  font-size: var(--text-section);
+  line-height: 1.04;
+  font-weight: var(--weight-heading);
+  letter-spacing: -0.06em;
+  @media (max-width: 1100px) {
+    .about-section {
+      grid-template-columns: 1fr;
+      gap: 52px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .about-section {
+      padding: 72px 20px;
+    }
   }
 </style>

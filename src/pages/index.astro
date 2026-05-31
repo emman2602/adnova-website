@@ -1,32 +1,54 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
 import Nav from '../components/Nav.astro';
 import Hero from '../components/Hero.astro';
+import TrustSection from '../components/TrustSection.astro';
+import About from '../components/About.astro';
+import StatsMedia from '../components/StatsMedia.astro';
+import Foundation from '../components/Foundation.astro';
 import Services from '../components/Services.astro';
 import Projects from '../components/Projects.astro';
 import Process from '../components/Process.astro';
-import About from '../components/About.astro';
 import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
 ---
-<Layout title="ADNOVA — Software Solutions">
+
+<Layout
+  title="ADNOVA® | Software a medida para PyMEs"
+  description="ADNOVA diseña software a medida, automatización, dashboards e integraciones para PyMEs en México."
+>
   <Nav />
+
   <main>
     <Hero />
+    <TrustSection />
     <About />
+    <StatsMedia />
+    <Foundation />
     <Services />
     <Projects />
     <Process />
-    <Contact/>
-    
+    <Contact />
+    <Footer />
   </main>
 </Layout>
 
 <script>
-const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
+  const animatedElements = document.querySelectorAll(
+    '.reveal, .reveal-image, .stagger-item, .text-mask'
+  );
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.14,
+    rootMargin: '0px 0px -70px 0px'
   });
-}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-reveals.forEach(el => obs.observe(el));
+
+  animatedElements.forEach((element) => observer.observe(element));
 </script>

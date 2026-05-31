@@ -1,0 +1,298 @@
+---
+const year = new Date().getFullYear();
+
+const companyLinks = [
+  { label: 'Nosotros', href: '#empresa' },
+  { label: 'Servicios', href: '#expertise' },
+  { label: 'Proyectos', href: '#trabajo' },
+  { label: 'Proceso', href: '#proceso' },
+  { label: 'Contacto', href: '#contacto' }
+];
+
+const serviceLinks = [
+  'Sistemas administrativos',
+  'Punto de venta e inventario',
+  'Automatización de procesos',
+  'Dashboards y reportes',
+  'Páginas web y presencia digital'
+];
+---
+
+<footer class="footer source-container">
+  <div class="footer-main">
+    <div class="footer-brand">
+      <a href="#inicio" class="footer-logo" aria-label="Ir al inicio">
+        <span>◆</span>
+        ADNOVA®
+      </a>
+
+      <p>
+        Software a medida, automatización y presencia digital para PyMEs que
+        quieren operar con más control, orden y claridad.
+      </p>
+
+      <div class="footer-actions">
+        <a
+          href="https://wa.me/529512690421?text=Hola%20ADNOVA%2C%20quiero%20un%20diagnóstico%20para%20mi%20negocio"
+          target="_blank"
+          class="footer-cta"
+        >
+          Solicitar diagnóstico
+          <span>↗</span>
+        </a>
+
+        <a href="mailto:adnovasoftwaresolutions@gmail.com" class="footer-mail">
+          adnovasoftwaresolutions@gmail.com
+        </a>
+      </div>
+    </div>
+
+    <nav class="footer-nav" aria-label="Navegación de pie de página">
+      <div class="footer-column">
+        <span>Empresa</span>
+
+        {companyLinks.map((item) => (
+          <a href={item.href}>{item.label}</a>
+        ))}
+      </div>
+
+      <div class="footer-column">
+        <span>Servicios</span>
+
+        {serviceLinks.map((service) => (
+          <a href="#expertise">{service}</a>
+        ))}
+      </div>
+
+      <div class="footer-column">
+        <span>Contacto</span>
+
+        <a href="tel:+529512690421">+52 951 269 0421</a>
+        <p>Oaxaca, México</p>
+        <p>Atención local y remota</p>
+      </div>
+    </nav>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© {year} ADNOVA Software Solutions</span>
+    <span>Hecho en México</span>
+    <a href="#inicio">Volver arriba ↑</a>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    --footer-bg: var(--blue);
+    --footer-bg-soft: #123dcb;
+    --footer-line: rgba(255, 255, 255, 0.14);
+    --footer-text: rgba(255, 255, 255, 0.88);
+    --footer-muted: rgba(255, 255, 255, 0.72);
+    --footer-soft: rgba(255, 255, 255, 0.56);
+
+    margin-top: 0;
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    border-top: 1px solid var(--line);
+    background: var(--footer-bg);
+    color: white;
+  }
+
+  .footer-main {
+    display: grid;
+    grid-template-columns: minmax(320px, 0.85fr) 1.15fr;
+    gap: 70px;
+    padding: 52px 34px;
+    border-bottom: 1px solid var(--footer-line);
+  }
+
+  .footer-brand {
+    max-width: 520px;
+  }
+
+  .footer-logo {
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 560;
+    letter-spacing: -0.035em;
+    text-decoration: none;
+  }
+
+  .footer-logo span {
+    color: #b9cbff;
+    font-size: 13px;
+  }
+
+  .footer-brand p {
+    max-width: 460px;
+    margin: 24px 0 0;
+    color: var(--footer-muted);
+    font-size: 17px;
+    line-height: 1.5;
+    font-weight: 380;
+    letter-spacing: -0.018em;
+  }
+
+  .footer-actions {
+    display: grid;
+    gap: 14px;
+    margin-top: 30px;
+  }
+
+  .footer-cta {
+    width: fit-content;
+    min-height: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    padding: 0 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: white;
+    color: var(--footer-bg);
+    font-size: 15px;
+    font-weight: 520;
+    text-decoration: none;
+    transition:
+      transform 0.25s ease,
+      background 0.25s ease,
+      color 0.25s ease;
+  }
+
+  .footer-cta:hover {
+    transform: translateY(-2px);
+    background: #eaf0ff;
+    color: var(--footer-bg);
+  }
+
+  .footer-cta span {
+    font-size: 22px;
+    line-height: 1;
+  }
+
+  .footer-mail {
+    width: fit-content;
+    max-width: 100%;
+    color: var(--footer-muted);
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 420;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    transition: color 0.2s ease;
+  }
+
+  .footer-mail:hover {
+    color: white;
+  }
+
+  .footer-nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 42px;
+  }
+
+  .footer-column {
+    display: grid;
+    align-content: start;
+    gap: 12px;
+    min-width: 0;
+  }
+
+  .footer-column > span {
+    margin-bottom: 8px;
+    color: #c9d7ff;
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .footer-column a,
+  .footer-column p {
+    max-width: 100%;
+    margin: 0;
+    color: var(--footer-text);
+    font-size: 15px;
+    line-height: 1.4;
+    font-weight: 380;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    transition:
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .footer-column a:hover {
+    color: white;
+    transform: translateX(4px);
+  }
+
+  .footer-bottom {
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 0 34px;
+    color: var(--footer-soft);
+    font-size: 14px;
+    font-weight: 380;
+  }
+
+  .footer-bottom a {
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .footer-bottom a:hover {
+    opacity: 0.82;
+  }
+
+  @media (max-width: 1050px) {
+    .footer-main {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    .footer-nav {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 760px) {
+    .footer {
+      border-left: 0;
+      border-right: 0;
+    }
+
+    .footer-main {
+      padding: 42px 20px;
+      gap: 38px;
+    }
+
+    .footer-nav {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .footer-bottom {
+      min-height: auto;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 22px 20px;
+    }
+
+    .footer-cta {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+</style>

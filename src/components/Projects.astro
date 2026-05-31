@@ -1,315 +1,137 @@
 ---
+const projects = [
+  {
+    sector: "Restaurantes",
+    title: "Punto de venta e inventario",
+    image: "Imagen proyecto",
+    imageUrl: "/images/restaurante.png"
+  },
+  {
+    sector: "Comercios",
+    title: "Control administrativo",
+    image: "Imagen proyecto",
+    imageUrl: "/images/administrativo.png"
+  },
+  {
+    sector: "Servicios",
+    title: "Pagina web",
+    image: "Imagen proyecto",
+    imageUrl: "/images/pagina_empresarial.png"
+  },
+];
 ---
-<section id="proyectos" class="projects">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="stag"><span class="stag-line"></span>Proyectos de referencia</div>
-      <h2 class="stitle">Ejemplos de lo que <em>podemos construir</em></h2>
-      <p class="ssub">No hacemos sistemas genéricos. Cada solución aquí fue diseñada a la medida para resolver cuellos de botella reales de nuestros clientes.</p>
-    </div>
 
-    <div class="projects-showcase">
+<section id="trabajo" class="work-section source-container reveal">
+  <div class="work-heading">
+    <h2>Soluciones que podemos construir.</h2>
 
-      <div class="project-row reveal">
-        <div class="pr-content">
-          <div class="pr-sector">Restaurantes & Food Service</div>
-          <h3 class="pr-title">Sistema de Punto de Venta (POS) y Gestión</h3>
-          
-          <div class="pr-story">
-            <div class="story-block">
-              <h4 class="sb-title">El Reto</h4>
-              <p>Operación dependiente de papel y Excel. Las comandas se perdían, las cuentas tenían errores manuales y no existía visibilidad real del inventario al cierre del día.</p>
-            </div>
-            <div class="story-block">
-              <h4 class="sb-title">El Resultado</h4>
-              <p>Desarrollamos un POS intuitivo con comandas digitales conectadas a la cocina en tiempo real. Redujimos el tiempo de atención y automatizamos el descuento de inventario por cada platillo vendido.</p>
-            </div>
-          </div>
-          
-          <div class="pr-tags">
-            <span>Punto de Venta</span><span>Control de Inventario</span><span>Pantallas de Cocina</span>
-          </div>
-        </div>
-        
-        <div class="pr-visual">
-          <div class="clean-browser">
-            <div class="cb-header">
-              <div class="cb-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg> pos.adnova.mx</div>
-            </div>
-            <div class="cb-body pm-resto">
-              <div class="pos-left">
-                <div class="pos-cats">
-                  <button class="pcat active">Entradas</button>
-                  <button class="pcat">Fuertes</button>
-                  <button class="pcat">Bebidas</button>
-                </div>
-                <div class="pos-items">
-                  <div class="pos-item"><div class="pi-info"><span class="pi-name">Tacos arrachera</span><span class="pi-price">$185</span></div><button class="pi-add">+</button></div>
-                  <div class="pos-item"><div class="pi-info"><span class="pi-name">Quesadillas</span><span class="pi-price">$120</span></div><button class="pi-add">+</button></div>
-                  <div class="pos-item"><div class="pi-info"><span class="pi-name">Guacamole</span><span class="pi-price">$95</span></div><button class="pi-add">+</button></div>
-                </div>
-              </div>
-              <div class="pos-right">
-                <div class="pos-mesa">Mesa 4 · 3 comensales</div>
-                <div class="pos-ticket">
-                  <div class="pt-row"><span>2x Tacos arrachera</span><span>$370</span></div>
-                  <div class="pt-row"><span>1x Guacamole</span><span>$95</span></div>
-                  <div class="pt-row"><span>2x Agua mineral</span><span>$60</span></div>
-                  <div class="pt-div"></div>
-                  <div class="pt-row total"><span>Total</span><span>$525</span></div>
-                </div>
-                <button class="pos-cobrar">Cobrar $525</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    
+  </div>
 
-      <div class="project-row reverse reveal delay-1">
-        <div class="pr-content">
-          <div class="pr-sector">Distribución & Logística</div>
-          <h3 class="pr-title">ERP Central para Múltiples Almacenes</h3>
+  <div class="work-grid">
+    {projects.map((project, index) => (
+  <article class="stagger-item" style={`--i:${index}`}>
           
-          <div class="pr-story">
-            <div class="story-block">
-              <h4 class="sb-title">El Reto</h4>
-              <p>Tres almacenes operando en silos mediante hojas de cálculo desconectadas. Era imposible saber qué mercancía estaba en tránsito y las cuentas por pagar estaban desorganizadas.</p>
-            </div>
-            <div class="story-block">
-              <h4 class="sb-title">El Resultado</h4>
-              <p>Un sistema ERP a la medida que centralizó las compras, inventario y cuentas por pagar. Implementamos un sistema de alertas automáticas que previene rupturas de stock en productos clave.</p>
-            </div>
-          </div>
-          
-          <div class="pr-tags">
-            <span>ERP a medida</span><span>Multi-almacén</span><span>Alertas Automáticas</span>
-          </div>
-        </div>
-        
-        <div class="pr-visual">
-          <div class="clean-browser">
-            <div class="cb-header">
-              <div class="cb-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg> erp.adnova.mx</div>
-            </div>
-            <div class="cb-body pm-erp">
-               <div class="erp-sidebar">
-                <div class="es-item active">Dashboard</div>
-                <div class="es-item">Compras</div>
-                <div class="es-item hl">Inventario</div>
-                <div class="es-item">Reportes</div>
-              </div>
-              <div class="erp-main">
-                <div class="erp-kpis">
-                  <div class="ek"><span class="ek-n">$4.2M</span><span class="ek-l">Compras</span></div>
-                  <div class="ek"><span class="ek-n">847</span><span class="ek-l">SKUs activos</span></div>
-                  <div class="ek alert"><span class="ek-n">12</span><span class="ek-l">Bajo stock</span></div>
-                </div>
-                <div class="erp-table">
-                  <div class="et-head"><span>Proveedor</span><span>Monto</span><span>Estado</span></div>
-                  <div class="et-row"><span>Distribuidora MX</span><span>$42k</span><span class="badge-s green">Pagado</span></div>
-                  <div class="et-row"><span>Importaciones SA</span><span>$18k</span><span class="badge-s yellow">Pendiente</span></div>
-                  <div class="et-row"><span>Logística Norte</span><span>$9.2k</span><span class="badge-s blue">En ruta</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="project-row reveal delay-2">
-        <div class="pr-content">
-          <div class="pr-sector">Empresas de Servicios</div>
-          <h3 class="pr-title">Dashboard Operativo y Gestión de Soporte</h3>
-          
-          <div class="pr-story">
-            <div class="story-block">
-              <h4 class="sb-title">El Reto</h4>
-              <p>Falta de visibilidad sobre el rendimiento del equipo de atención. Los acuerdos de nivel de servicio (SLA) se incumplían porque no había un seguimiento en tiempo real de los tickets urgentes.</p>
-            </div>
-            <div class="story-block">
-              <h4 class="sb-title">El Resultado</h4>
-              <p>Un centro de mando analítico. Integramos los datos operativos en un dashboard en vivo que prioriza tickets urgentes, mide tiempos de respuesta y genera reportes gerenciales en un clic.</p>
-            </div>
-          </div>
-          
-          <div class="pr-tags">
-            <span>Dashboard Ejecutivo</span><span>Gestión de Tickets</span><span>Análisis de SLA</span>
-          </div>
-        </div>
-        
-        <div class="pr-visual">
-          <div class="clean-browser">
-            <div class="cb-header">
-              <div class="cb-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg> admin.adnova.mx</div>
-            </div>
-            <div class="cb-body pm-dash">
-               <div class="d-header">
-                <span class="d-title">Operaciones · Julio</span>
-                <div class="d-filters"><span class="df active">Sem</span><span class="df">Mes</span></div>
-              </div>
-              <div class="d-metrics">
-                <div class="dm green"><span class="dm-n">98.2%</span><span class="dm-l">SLA</span></div>
-                <div class="dm blue"><span class="dm-n">2.4h</span><span class="dm-l">Respuesta</span></div>
-                <div class="dm yellow"><span class="dm-n">14</span><span class="dm-l">Abiertos</span></div>
-              </div>
-              <div class="d-chart">
-                <div class="dc-label">Tickets resueltos por día</div>
-                <div class="dc-line">
-                  <svg viewBox="0 0 280 40" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                    <polyline points="0,35 40,28 80,32 120,15 160,20 200,8 240,12 280,5" stroke="#3b5bd7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                  </svg>
-                </div>
-              </div>
-              <div class="d-tickets">
-                <div class="dt-row"><span class="dt-id">#1042</span><span class="dt-desc">Falla facturación</span><span class="badge-s red">Urgente</span></div>
-                <div class="dt-row"><span class="dt-id">#1041</span><span class="dt-desc">Permisos usuario</span><span class="badge-s blue">Proceso</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+          <div
+            class="image-slot work-image"
+            style={`background-image: url('${project.imageUrl}')`}
+            aria-label={project.image}
+          ></div>
 
-    </div>
+          <div class="work-content">
+            <span>{project.sector}</span>
+            <h3>{project.title}</h3>
+          </div>
+        </article>
+      ))
+    }
   </div>
 </section>
 
 <style>
-.projects { padding: 8rem 2rem; background: white; overflow: hidden; }
-.container { max-width: 1200px; margin: 0 auto; }
+  .work-section {
+    padding: 86px 34px;
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
 
-.section-header { text-align: center; margin-bottom: 5rem; }
-.stag { display: inline-flex; align-items: center; gap: 0.7rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); margin-bottom: 1rem; }
-.stag-line { display: block; width: 22px; height: 2px; background: var(--blue); border-radius: 1px; }
-.stitle { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 3.8vw, 2.9rem); font-weight: 700; line-height: 1.15; color: var(--text-dark); margin-bottom: 0.8rem; }
-.stitle em { font-style: italic; font-weight: 400; color: var(--blue); }
-.ssub { font-size: 1.05rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; line-height: 1.75; }
+  .work-heading {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+    gap: 80px;
+    margin-bottom: 42px;
+  }
 
-/* LAYOUT EDITORIAL */
-.projects-showcase { display: flex; flex-direction: column; gap: 7rem; }
+  .work-heading h2 {
+    margin: 0;
+    font-size: var(--text-section);
+    line-height: 1;
+    font-weight: var(--weight-heading);
+    letter-spacing: -0.06em;
+  }
 
-.project-row {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 5rem;
-  align-items: center;
-}
-.project-row.reverse {
-  grid-template-columns: 1.1fr 1fr;
-}
-.project-row.reverse .pr-content {
-  order: 2; /* Cambia el orden en desktop */
-}
+  .work-heading p {
+    margin: 0;
+    color: var(--muted);
+    font-size: var(--text-body-lg);
+    line-height: 1.38;
+    font-weight: var(--weight-body-strong);
+    letter-spacing: -0.025em;
+  }
 
-/* CONTENT (TEXT) */
-.pr-sector { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue-light); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;}
-.pr-sector::before { content: ''; display: block; width: 8px; height: 8px; background: var(--blue-light); border-radius: 50%; opacity: 0.5; }
-.pr-title { font-family: 'Syne', sans-serif; font-size: 2.2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 2rem; line-height: 1.2; }
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
 
-.pr-story { display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem; border-left: 2px solid var(--border); padding-left: 1.5rem; }
-.story-block {}
-.sb-title { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 700; color: var(--text-dark); margin-bottom: 0.5rem; }
-.story-block p { font-size: 0.95rem; color: var(--text-mid); line-height: 1.7; }
+  .work-grid article {
+    background: var(--panel);
+    transition:
+      transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      background 0.35s ease;
+  }
 
-.pr-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; }
-.pr-tags span { font-size: 0.75rem; font-weight: 600; background: var(--off-white); color: var(--text-mid); border: 1px solid var(--border); padding: 0.4rem 1rem; border-radius: 100px; transition: all 0.2s; }
-.pr-tags span:hover { border-color: var(--blue); color: var(--blue); }
+  .work-grid article:hover {
+    transform: translateY(-4px);
+    background: white;
+  }
 
-/* VISUAL (MOCKUP) */
-.pr-visual { position: relative; }
-/* Sutil resplandor de fondo para darle volumen */
-.pr-visual::before {
-  content: ''; position: absolute; inset: -20px; background: radial-gradient(circle, rgba(59,91,215,0.08) 0%, transparent 70%); z-index: 0; pointer-events: none;
-}
+  .work-image {
+    height: 280px;
+  }
 
-/* NUEVO CONTENEDOR DE NAVEGADOR */
-.clean-browser {
-  position: relative; z-index: 1;
-  background: #0d1117; 
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(59,91,215,0.2);
-  box-shadow: 0 20px 40px rgba(13, 18, 64, 0.15), 0 0 0 1px rgba(255,255,255,0.05) inset;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-.project-row:hover .clean-browser { transform: translateY(-5px); box-shadow: 0 30px 60px rgba(13, 18, 64, 0.2), 0 0 0 1px rgba(255,255,255,0.05) inset; }
+  .work-content {
+    padding: 24px;
+  }
 
-.cb-header {
-  background: #161b22;
-  padding: 0.8rem;
-  display: flex; align-items: center; justify-content: center;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-.cb-url {
-  display: flex; align-items: center; gap: 0.4rem;
-  background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05);
-  color: rgba(255,255,255,0.4); font-size: 0.7rem; font-family: 'SF Mono', monospace;
-  padding: 0.3rem 3rem; border-radius: 6px;
-}
-.cb-url svg { width: 12px; height: 12px; opacity: 0.7; }
-.cb-body { padding: 1.5rem; }
+  .work-content span {
+    color: var(--blue);
+    font-size: 15px;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
 
+  .work-content h3 {
+    margin: 14px 0 0;
+    font-size: 27px;
+    line-height: 0.98;
+    font-weight: 760;
+    letter-spacing: -0.065em;
+  }
 
-/* LOS MOCKUPS INTERNOS (Tu CSS optimizado) */
-.pm-resto { display: grid; grid-template-columns: 1.2fr 1fr; gap: 1rem; }
-.pos-cats { display: flex; gap: 0.4rem; margin-bottom: 1rem; flex-wrap: wrap;}
-.pcat { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); color: rgba(255,255,255,0.5); font-size: 0.7rem; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: default;}
-.pcat.active { background: rgba(59,91,215,0.2); border-color: var(--blue); color: white; }
-.pos-items { display: flex; flex-direction: column; gap: 0.5rem; }
-.pos-item { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 6px; padding: 0.6rem; }
-.pi-info { display: flex; flex-direction: column; gap: 0.2rem; }
-.pi-name { font-size: 0.75rem; color: rgba(255,255,255,0.8); font-weight: 500;}
-.pi-price { font-size: 0.7rem; color: var(--blue-light); font-weight: 600; }
-.pi-add { background: var(--blue); color: white; border: none; border-radius: 4px; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; }
+  @media (max-width: 1100px) {
+    .work-heading,
+    .work-grid {
+      grid-template-columns: 1fr;
+    }
+  }
 
-.pos-mesa { font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-bottom: 0.8rem; }
-.pos-ticket { background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05); border-radius: 6px; padding: 0.8rem; margin-bottom: 0.8rem; }
-.pt-row { display: flex; justify-content: space-between; font-size: 0.7rem; color: rgba(255,255,255,0.6); padding: 0.2rem 0; }
-.pt-row.total { color: white; font-weight: 700; font-size: 0.8rem; margin-top: 0.4rem; }
-.pt-div { height: 1px; background: rgba(255,255,255,0.1); margin: 0.5rem 0; }
-.pos-cobrar { width: 100%; background: var(--blue); color: white; border: none; border-radius: 6px; padding: 0.8rem; font-size: 0.8rem; font-weight: 700; transition: background 0.2s;}
-
-.pm-erp { display: grid; grid-template-columns: 100px 1fr; gap: 1rem; }
-.erp-sidebar { display: flex; flex-direction: column; gap: 0.3rem;}
-.es-item { font-size: 0.7rem; color: rgba(255,255,255,0.4); padding: 0.5rem; border-radius: 4px; }
-.es-item.active { background: rgba(59,91,215,0.2); color: white; }
-.es-item.hl { color: #fbbf24; }
-.erp-kpis { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.8rem; margin-bottom: 1.2rem; }
-.ek { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 0.8rem; }
-.ek.alert { border-color: rgba(251,191,36,0.3); background: rgba(251,191,36,0.05); }
-.ek-n { display: block; font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; color: white; margin-bottom: 0.2rem;}
-.ek-l { font-size: 0.65rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.05em;}
-.et-head { display: grid; grid-template-columns: 1fr 80px 70px; font-size: 0.65rem; color: rgba(255,255,255,0.3); text-transform: uppercase; letter-spacing: 0.08em; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 0.5rem;}
-.et-row { display: grid; grid-template-columns: 1fr 80px 70px; font-size: 0.75rem; color: rgba(255,255,255,0.7); padding: 0.5rem 0; align-items: center; }
-
-.pm-dash {}
-.d-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
-.d-title { font-size: 0.8rem; color: white; font-weight: 600; }
-.d-filters { display: flex; background: rgba(255,255,255,0.05); border-radius: 6px; padding: 0.2rem;}
-.df { font-size: 0.65rem; color: rgba(255,255,255,0.5); padding: 0.3rem 0.6rem; border-radius: 4px; }
-.df.active { background: rgba(255,255,255,0.1); color: white; }
-.d-metrics { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.8rem; margin-bottom: 1.2rem; }
-.dm { border-radius: 8px; padding: 0.8rem; border: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.2);}
-.dm-n { display: block; font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 700; color: white; margin-bottom: 0.2rem;}
-.dm-l { font-size: 0.65rem; color: rgba(255,255,255,0.4); }
-.d-chart { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 1rem; margin-bottom: 1rem; }
-.dc-label { font-size: 0.7rem; color: rgba(255,255,255,0.5); margin-bottom: 0.8rem; }
-.dt-row { display: grid; grid-template-columns: 50px 1fr 70px; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: rgba(255,255,255,0.7); padding: 0.6rem 0; border-top: 1px solid rgba(255,255,255,0.05); }
-.dt-id { color: var(--blue-light); font-weight: 600; font-size: 0.7rem; }
-
-.badge-s { display: inline-flex; justify-content: center; font-size: 0.65rem; font-weight: 600; padding: 0.2rem 0.5rem; border-radius: 4px; white-space: nowrap; }
-.badge-s.green { background: rgba(74,222,128,0.1); color: #4ade80; }
-.badge-s.yellow { background: rgba(251,191,36,0.1); color: #fbbf24; }
-.badge-s.blue { background: rgba(59,91,215,0.15); color: #93a8f4; }
-.badge-s.red { background: rgba(248,113,113,0.1); color: #f87171; }
-
-@media (max-width: 900px) {
-  .project-row, .project-row.reverse { grid-template-columns: 1fr; gap: 3rem; }
-  .project-row.reverse .pr-content { order: 1; } /* En móvil, el texto siempre va arriba */
-  .pr-title { font-size: 1.8rem; }
-  .projects-showcase { gap: 5rem; }
-}
-@media (max-width: 500px) {
-  .pm-resto, .pm-erp { grid-template-columns: 1fr; }
-  .cb-body { padding: 1rem; }
-}
+  @media (max-width: 700px) {
+    .work-section {
+      padding: 80px 20px;
+    }
+  }
 </style>

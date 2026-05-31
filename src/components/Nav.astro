@@ -1,124 +1,333 @@
 ---
 ---
-<nav id="navbar">
-  <div class="nav-inner">
-    <a href="#inicio" class="nav-logo">
-  <img src="/logoConNombre.png" alt="Adnova Software Solutions" width="100" height="auto" />
-</a>
-    <ul class="nav-links">
-      <li><a href="#nosotros">Nosotros</a></li>
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#proyectos">Proyectos</a></li>
-      <li><a href="#proceso">Proceso</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-    <a href="#contacto" class="nav-cta">Solicitar propuesta →</a>
-    <button class="hamburger" id="hamburger" aria-label="Menú">
-      <span></span><span></span><span></span>
-    </button>
+
+<header class="topbar" id="topbar">
+  <a href="#inicio" class="brand" aria-label="ADNOVA - Ir al inicio">
+    <img
+      src="/images/logoADNOVA.png"
+      alt="ADNOVA Software Solutions"
+      class="brand-logo"
+    />
+  </a>
+
+  <div class="location">
+    <span>Oaxaca, MX</span>
+    <i></i>
+    <span id="local-time">--:--</span>
   </div>
-  <div class="mobile-menu" id="mobile-menu">
-    <ul>
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#proyectos">Proyectos</a></li>
-      <li><a href="#proceso">Proceso</a></li>
-      <li><a href="#nosotros">Nosotros</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-    <a href="#contacto" class="nav-cta-mobile">Solicitar propuesta →</a>
-  </div>
+
+  <nav class="desktop-nav" aria-label="Navegación principal">
+    <a href="#empresa" class="nav-cell">Nosotros</a>
+    <a href="#expertise" class="nav-cell">Servicios</a>
+    <a href="#trabajo" class="nav-cell">Proyectos</a>
+    <a href="#proceso" class="nav-cell">Proceso</a>
+  </nav>
+
+  <a href="#contacto" class="contact-cell">Contacto</a>
+
+  <button
+    class="menu-button"
+    id="menu-button"
+    type="button"
+    aria-label="Abrir menú"
+    aria-expanded="false"
+    aria-controls="mobile-menu"
+  >
+    <span></span>
+    <span></span>
+  </button>
+</header>
+
+<nav class="mobile-menu" id="mobile-menu" aria-label="Menú móvil">
+  <a href="#empresa">Nosotros</a>
+  <a href="#expertise">Servicios</a>
+  <a href="#trabajo">Proyectos</a>
+  <a href="#proceso">Proceso</a>
+  <a href="#contacto">Contacto</a>
 </nav>
 
 <style>
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  padding: 0 2rem;
-  transition: background 0.35s, box-shadow 0.35s;
-  background-color: white;
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 80;
+    height: 64px;
+    display: grid;
+    grid-template-columns: 1.45fr 1fr 2.88fr 0.8fr;
+    border-bottom: 1px solid var(--line);
+    background: rgba(243, 242, 237, 0.94);
+    backdrop-filter: blur(18px);
+  }
+
+  .brand,
+  .location,
+  .contact-cell,
+  .menu-button {
+    display: flex;
+    align-items: center;
+    min-height: 64px;
+    padding: 0 28px;
+    border-right: 1px solid var(--line);
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .brand {
+  justify-content: flex-start;
+  overflow: hidden;
 }
-nav.scrolled {
-  background: rgba(255,255,255,0.97);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 1px 0 var(--border), 0 8px 32px rgba(59,91,215,0.07);
+
+.brand-logo {
+  width: 180px;
+  height: auto;
+  max-height: 54px;
+  display: block;
+  object-fit: contain;
+  object-position: left center;
 }
-.nav-inner {
-  max-width: 1280px; margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between;
-  height: 68px;
-}
-.nav-logo { display: flex; text-decoration: none; padding: auto; }
-.logo-mark {
-  background: var(--blue); color: white;
-  font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 800;
-  padding: 0.28rem 0.42rem; border-radius: 4px 0 0 4px; letter-spacing: 0.04em;
-}
-.logo-text {
-  background: var(--text-dark); color: white;
-  font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700;
-  padding: 0.28rem 0.42rem; border-radius: 0 4px 4px 0; letter-spacing: 0.08em;
-}
-nav.scrolled .logo-text { background: var(--text-dark); }
-.nav-links { display: flex; gap: 2.2rem; list-style: none; }
-.nav-links a {
-  font-size: 0.84rem; font-weight: 500; color: var(--text-mid);
-  text-decoration: none; transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--blue) }
-nav.scrolled .nav-links a { color: var(--text-mid); }
-nav.scrolled .nav-links a:hover { color: var(--blue); }
-.nav-cta {
-  background:var(--blue); color: var(--white);
-  padding: 0.52rem 1.2rem; border-radius: 6px;
-  font-size: 0.82rem; font-weight: 600; text-decoration: none;
-  border: 1.5px solid white; transition: all 0.22s;
-}
-.nav-cta:hover { background: var(--blue); color: white; border-color: var(--blue); }
-nav.scrolled .nav-cta { background: var(--blue); color: white; border-color: var(--blue); }
-nav.scrolled .nav-cta:hover { background: var(--blue-dark); }
-.hamburger {
-  display: none; flex-direction: column; gap: 5px;
-  background: none; border: none; cursor: pointer; padding: 4px;
-}
-.hamburger span { display: block; width: 22px; height: 2px; background: var(--text-dark); border-radius: 2px; transition: all 0.3s; }
-nav.scrolled .hamburger span { background: var(--text-dark); }
-.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-.mobile-menu {
-  display: none; background: white; padding: 1.5rem 2rem 2rem;
-  border-top: 1px solid var(--border);
-  box-shadow: 0 20px 40px rgba(59,91,215,0.1);
-}
-.mobile-menu.open { display: block; }
-.mobile-menu ul { list-style: none; margin-bottom: 1.5rem; }
-.mobile-menu ul li { border-bottom: 1px solid var(--border); }
-.mobile-menu ul li a { display: block; padding: 0.9rem 0; color: var(--text-dark); text-decoration: none; font-weight: 500; }
-.nav-cta-mobile {
-  display: inline-block; background: var(--blue); color: white;
-  padding: 0.75rem 1.5rem; border-radius: 6px;
-  font-weight: 600; font-size: 0.9rem; text-decoration: none;
-}
-@media (max-width: 900px) {
-  .nav-links, .nav-cta { display: none; }
-  .hamburger { display: flex; }
-}
+
+  .location {
+    justify-content: center;
+    gap: 13px;
+    font-size: 15px;
+    font-weight: var(--weight-medium, 460);
+    white-space: nowrap;
+  }
+
+  .location i {
+    width: 11px;
+    height: 11px;
+    flex: 0 0 auto;
+    background: var(--blue);
+  }
+
+  .desktop-nav {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    min-width: 0;
+  }
+
+  .nav-cell {
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 18px;
+    border-right: 1px solid var(--line);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1;
+    font-weight: var(--weight-medium, 460);
+    text-decoration: none;
+    transition:
+      background 0.25s ease,
+      color 0.25s ease;
+  }
+
+  .nav-cell:hover {
+    background: var(--black);
+    color: white;
+  }
+
+  .contact-cell {
+    justify-content: center;
+    border-right: 0;
+    background: var(--blue);
+    color: white;
+    font-size: 15px;
+    font-weight: var(--weight-medium, 460);
+    transition: background 0.25s ease;
+  }
+
+  .contact-cell:hover {
+    background: var(--blue-dark);
+  }
+
+  .menu-button {
+    display: none;
+    justify-content: center;
+    gap: 6px;
+    flex-direction: column;
+    border: 0;
+    border-left: 1px solid var(--line);
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .menu-button span {
+    width: 22px;
+    height: 2px;
+    background: var(--ink);
+    transition:
+      transform 0.25s ease,
+      opacity 0.25s ease;
+  }
+
+  .menu-button.is-open span:first-child {
+    transform: translateY(4px) rotate(45deg);
+  }
+
+  .menu-button.is-open span:last-child {
+    transform: translateY(-4px) rotate(-45deg);
+  }
+
+  .mobile-menu {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    z-index: 70;
+    display: grid;
+    background: rgba(244, 241, 232, 0.98);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(18px);
+    transform: translateY(-115%);
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      transform 0.32s cubic-bezier(.16, 1, .3, 1),
+      opacity 0.32s ease;
+  }
+
+  .mobile-menu.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-menu a {
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+    font-size: 18px;
+    font-weight: var(--weight-medium, 460);
+    text-decoration: none;
+  }
+
+  .mobile-menu a:hover {
+    background: var(--blue);
+    color: white;
+  }
+
+  @media (max-width: 1180px) {
+    .topbar {
+      grid-template-columns: 1.2fr 0.9fr 2.6fr 0.8fr;
+    }
+
+    .brand,
+    .location,
+    .contact-cell {
+      padding-left: 22px;
+      padding-right: 22px;
+    }
+
+    .nav-cell {
+      padding-left: 12px;
+      padding-right: 12px;
+      font-size: 14px;
+    }
+
+    .brand-logo {
+    width: 180px;
+    max-height: 50px;
+  }
+  }
+
+  @media (max-width: 900px) {
+    .topbar {
+      grid-template-columns: 1fr auto auto;
+      height: 60px;
+    }
+
+    .brand {
+      min-height: 60px;
+      padding: 0 18px;
+    }
+
+    .brand-logo {
+    width: 180px;
+    max-height: 46px;
+  }
+    .location,
+    .desktop-nav {
+      display: none;
+    }
+
+    .contact-cell {
+      min-height: 60px;
+      padding: 0 18px;
+      font-size: 14px;
+      border-left: 1px solid var(--line);
+      border-right: 0;
+    }
+
+    .menu-button {
+      min-height: 60px;
+      width: 62px;
+      display: flex;
+      padding: 0;
+    }
+
+    .mobile-menu {
+      top: 60px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .topbar {
+      grid-template-columns: 1fr auto;
+    }
+
+    .contact-cell {
+      display: none;
+    }
+
+    .menu-button {
+      width: 58px;
+    }
+
+    .brand-logo {
+    width: 180px;
+    max-height: 42px;
+  }
+  }
 </style>
 
 <script>
-const navbar = document.getElementById('navbar');
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobile-menu');
-window.addEventListener('scroll', () => {
-  navbar?.classList.toggle('scrolled', window.scrollY > 20);
-});
-hamburger?.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
-  mobileMenu?.classList.toggle('open');
-});
-mobileMenu?.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    hamburger?.classList.remove('open');
-    mobileMenu?.classList.remove('open');
+  const timeElement = document.getElementById('local-time');
+
+  function updateTime() {
+    if (!timeElement) return;
+
+    timeElement.textContent = new Intl.DateTimeFormat('es-MX', {
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true,
+      timeZone: 'America/Mexico_City'
+    }).format(new Date());
+  }
+
+  updateTime();
+  setInterval(updateTime, 60000);
+
+  const menuButton = document.getElementById('menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuButton?.addEventListener('click', () => {
+    const isOpen = menuButton.classList.toggle('is-open');
+
+    mobileMenu?.classList.toggle('is-open', isOpen);
+    menuButton.setAttribute('aria-expanded', String(isOpen));
   });
-});
+
+  mobileMenu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      menuButton?.classList.remove('is-open');
+      mobileMenu.classList.remove('is-open');
+      menuButton?.setAttribute('aria-expanded', 'false');
+    });
+  });
 </script>

@@ -1,0 +1,133 @@
+---
+const logos = [
+  'ERP ligeros',
+  'Punto de venta',
+  'Dashboards',
+  'Inventario',
+  'Automatización',
+  'APIs',
+  'Páginas web',
+  'Presencia digital',
+  'Reportes',
+  'Sistemas internos'
+];
+---
+
+<section class="trusted-section source-container reveal">
+  <div class="trusted-copy">
+    <span>Confianza operativa</span>
+
+    <h2>
+      Tecnología para negocios que necesitan orden, control y crecimiento.
+    </h2>
+  </div>
+
+  <div class="trusted-marquee" aria-label="Servicios y soluciones ADNOVA">
+    <div class="marquee-track">
+      {[...logos, ...logos].map((logo) => (
+        <div class="logo-pill">{logo}</div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .trusted-section {
+    display: grid;
+    grid-template-columns: 0.55fr 1fr;
+    gap: 54px;
+    align-items: center;
+    padding: 54px 34px;
+    border: 1px solid var(--line);
+    border-top: 0;
+    overflow: hidden;
+  }
+
+  .trusted-copy span {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--blue);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .trusted-copy h2 {
+    max-width: 560px;
+    margin: 0;
+    font-size: clamp(26px, 2.6vw, 42px);
+    line-height: 1.04;
+    font-weight: 650;
+    letter-spacing: -0.055em;
+  }
+
+  .trusted-marquee {
+    position: relative;
+    overflow: hidden;
+    padding: 12px 0;
+    mask-image: linear-gradient(
+      90deg,
+      transparent,
+      black 12%,
+      black 88%,
+      transparent
+    );
+  }
+
+  .marquee-track {
+    width: max-content;
+    display: flex;
+    gap: 14px;
+    animation: marquee 28s linear infinite;
+  }
+
+  .trusted-marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  .logo-pill {
+    min-width: max-content;
+    padding: 18px 24px;
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.34);
+    color: var(--ink);
+    font-size: clamp(18px, 2vw, 30px);
+    line-height: 1;
+    font-weight: 520;
+    letter-spacing: -0.045em;
+    transition:
+      background 0.25s ease,
+      color 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .logo-pill:hover {
+    background: var(--blue);
+    color: white;
+    transform: translateY(-4px);
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (max-width: 900px) {
+    .trusted-section {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .trusted-section {
+      padding: 42px 20px;
+    }
+  }
+</style>
