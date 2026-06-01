@@ -282,6 +282,8 @@ const steps = [
     document.querySelectorAll<HTMLElement>('.process-card')
   );
 
+  let ticking = false;
+
   const updateProcessCards = () => {
     if (!processSection || processCards.length === 0) return;
 
@@ -301,8 +303,19 @@ const steps = [
     });
   };
 
+  const requestUpdate = () => {
+    if (ticking) return;
+
+    ticking = true;
+
+    requestAnimationFrame(() => {
+      updateProcessCards();
+      ticking = false;
+    });
+  };
+
   updateProcessCards();
 
-  window.addEventListener('scroll', updateProcessCards, { passive: true });
-  window.addEventListener('resize', updateProcessCards);
+  window.addEventListener('scroll', requestUpdate, { passive: true });
+  window.addEventListener('resize', requestUpdate);
 </script>

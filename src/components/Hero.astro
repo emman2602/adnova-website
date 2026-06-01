@@ -2,12 +2,16 @@
 ---
 
 <section id="inicio" class="hero source-container">
-  <div
-    class="hero-image image-slot cut-corner reveal-image"
-    style="background-image: url('/images/hero-adnova.webp')"
-    aria-label="Empresa de desarrollo de software revisando un sistema empresarial"
-  >
-  </div>
+  <div class="hero-image cut-corner reveal-image">
+  <img
+    src="/images/hero-adnova.webp"
+    alt="Empresa de desarrollo de software revisando un sistema empresarial"
+    width="900"
+    height="1000"
+    fetchpriority="high"
+    decoding="async"
+  />
+</div>
 
   <div class="hero-content">
     <a href="#contacto" class="hero-announcement reveal">
@@ -62,16 +66,23 @@
   }
 
   .hero-image {
-    grid-area: image;
-    height: calc(100vh - 220px);
-    min-height: 500px;
-    max-height: 680px;
-    border-right: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
+  grid-area: image;
+  height: calc(100vh - 220px);
+  min-height: 500px;
+  max-height: 680px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  background: var(--panel);
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
 
   .hero-content {
     grid-area: content;
