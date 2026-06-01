@@ -3,81 +3,323 @@
 ---
 
 <section id="empresa" class="about-section source-container reveal">
-  <aside>
-    <h3>Somos una empresa de software enfocado en pequeñas y medianas empresa</h3>
+  <div class="about-layout">
+    <aside class="about-aside">
+      <h3>
+        Somos una empresa de software enfocada en pequeñas y medianas empresas.
+      </h3>
 
-    <ul>
-      <li>Oaxaca, México</li>
-      <li>Atención remota</li>
-      <li>Sistemas a medida</li>
-      <li>Automatización</li>
-      <li>Soporte continuo</li>
-    </ul>
-  </aside>
+      <ul>
+        <li>Oaxaca, México</li>
+        <li>Atención local y remota</li>
+        <li>Sistemas a medida</li>
+        <li>Automatización de procesos</li>
+        <li>Soporte continuo</li>
+      </ul>
+    </aside>
 
-  <div>
-    <h2>
-      ADNOVA nace para ayudar a negocios que ya no pueden seguir dependiendo de
-      hojas de cálculo, procesos manuales y herramientas desconectadas.
-    </h2>
+    <div class="about-content">
+      <span class="about-kicker">Empresa de desarrollo de software</span>
 
-    <a href="#contacto" class="dark-button">
-      Sobre nosotros
-      <span>↗</span>
-    </a>
+      <h2>
+        ADNOVA Software Solutions nace para digitalizar y conectar los procesos
+        de negocios que quieren operar mejor.
+      </h2>
+
+      <p class="about-typewriter">
+        <span>Diseñamos sistemas digitales para operar con más control.</span>
+      </p>
+
+      <a href="/nosotros" class="about-button">
+        Sobre nosotros
+        <span>↗</span>
+      </a>
+    </div>
   </div>
 </section>
 
 <style>
   .about-section {
-    display: grid;
-    grid-template-columns: 0.25fr 0.75fr;
-    gap: 80px;
-    padding: 86px 34px;
     border-left: 1px solid var(--line);
     border-right: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
+    background: var(--bg);
   }
 
-  .about-section aside h3 {
-    margin: 0 0 34px;
-    font-size: 21px;
-    line-height: 1.25;
-    font-weight: 720;
-    letter-spacing: -0.045em;
+  .about-layout {
+    display: grid;
+    grid-template-columns: 0.3fr 0.7fr;
+    gap: 88px;
+    padding: 86px 54px 96px;
   }
 
-  .about-section ul {
-    list-style: square;
-    padding-left: 18px;
+  .about-aside {
+    display: grid;
+    align-content: start;
+    gap: 38px;
+  }
+
+  .about-aside h3 {
+    max-width: 330px;
     margin: 0;
     color: var(--ink);
-    font-size: 18px;
-    line-height: 1.55;
+    font-size: clamp(21px, 1.8vw, 30px);
+    line-height: 1.12;
+    font-weight: var(--weight-heading);
+    letter-spacing: -0.052em;
   }
 
-  .about-section h2 {
-    max-width: 1180px;
+  .about-aside ul {
+    display: grid;
+    gap: 13px;
+    list-style: none;
+    padding: 0;
     margin: 0;
-    font-size: var(--text-section);
+  }
+
+  .about-aside li {
+    position: relative;
+    padding-left: 20px;
+    color: var(--ink);
+    font-size: clamp(16px, 1.18vw, 20px);
+    line-height: 1.32;
+    font-weight: var(--weight-body);
+    letter-spacing: -0.025em;
+  }
+
+  .about-aside li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 7px;
+    height: 7px;
+    background: var(--blue);
+  }
+
+  .about-content {
+    display: grid;
+    align-content: start;
+    gap: 30px;
+  }
+
+  .about-kicker {
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--blue);
+    font-size: 12px;
+    line-height: 1;
+    font-weight: var(--weight-strong);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .about-kicker::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: var(--blue);
+  }
+
+  .about-content h2 {
+    max-width: 980px;
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(34px, 3.8vw, 64px);
     line-height: 1.04;
     font-weight: var(--weight-heading);
-    letter-spacing: -0.06em;
+    letter-spacing: -0.065em;
   }
-  font-size: var(--text-section);
-  line-height: 1.04;
-  font-weight: var(--weight-heading);
-  letter-spacing: -0.06em;
+
+  .about-typewriter {
+    width: fit-content;
+    max-width: 100%;
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(18px, 1.35vw, 23px);
+    line-height: 1.35;
+    font-weight: var(--weight-medium);
+    letter-spacing: -0.035em;
+  }
+
+  .about-typewriter span {
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--blue);
+    animation:
+      typing 3.2s steps(58, end) both,
+      caret 0.85s step-end infinite;
+  }
+
+  .about-button {
+    width: min(360px, 100%);
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+    padding: 0 24px;
+    background: var(--black);
+    color: white;
+    font-size: 17px;
+    line-height: 1;
+    font-weight: var(--weight-medium);
+    text-decoration: none;
+    transition:
+      background 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .about-button:hover {
+    background: var(--blue);
+    transform: translateY(-2px);
+  }
+
+  .about-button span {
+    font-size: 28px;
+    font-weight: 400;
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes caret {
+    50% {
+      border-color: transparent;
+    }
+  }
+
   @media (max-width: 1100px) {
-    .about-section {
+    .about-layout {
       grid-template-columns: 1fr;
-      gap: 52px;
+      gap: 54px;
+      padding: 74px 34px 84px;
+    }
+
+    .about-aside {
+      max-width: 720px;
+    }
+
+    .about-aside h3 {
+      max-width: 620px;
+    }
+
+    .about-aside ul {
+      max-width: 680px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 13px 28px;
+    }
+
+    .about-content h2 {
+      max-width: 920px;
+      font-size: clamp(34px, 5.7vw, 58px);
     }
   }
 
   @media (max-width: 700px) {
     .about-section {
-      padding: 72px 20px;
+      border-left: 0;
+      border-right: 0;
+    }
+
+    .about-layout {
+      display: block;
+      padding: 64px 20px 72px;
+    }
+
+    .about-aside {
+      display: block;
+      margin-bottom: 48px;
+    }
+
+    .about-aside h3 {
+      max-width: 100%;
+      margin-bottom: 26px;
+      font-size: clamp(24px, 6.4vw, 34px);
+      line-height: 1.1;
+      letter-spacing: -0.052em;
+    }
+
+    .about-aside ul {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 11px;
+      max-width: 100%;
+    }
+
+    .about-aside li {
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .about-content {
+      gap: 26px;
+    }
+
+    .about-content h2 {
+      max-width: 100%;
+      font-size: clamp(32px, 8.6vw, 46px);
+      line-height: 1.06;
+      letter-spacing: -0.058em;
+    }
+
+    .about-typewriter {
+      width: 100%;
+      font-size: 18px;
+    }
+
+    .about-typewriter span {
+      white-space: normal;
+      border-right: 0;
+      animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .about-button {
+      width: 100%;
+      min-height: 62px;
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .about-layout {
+      padding-top: 56px;
+      padding-bottom: 64px;
+    }
+
+    .about-content h2 {
+      font-size: clamp(30px, 8vw, 40px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .about-typewriter span {
+      width: auto;
+      border-right: 0;
+      animation: none;
+    }
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 </style>
