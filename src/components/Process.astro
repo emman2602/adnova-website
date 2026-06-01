@@ -283,6 +283,9 @@ const steps = [
   );
 
   let ticking = false;
+  let lastProgress = 0;
+
+  const thresholds = [0.04, 0.28, 0.52, 0.76];
 
   const updateProcessCards = () => {
     if (!processSection || processCards.length === 0) return;
@@ -294,13 +297,26 @@ const steps = [
     const scrolled = Math.min(Math.max(-rect.top, 0), totalScrollable);
     const progress = totalScrollable > 0 ? scrolled / totalScrollable : 1;
 
-    const thresholds = [0.03, 0.24, 0.46, 0.68];
+    const isScrollingDown = progress >= lastProgress;
 
     processCards.forEach((card, index) => {
-      if (progress >= thresholds[index]) {
+      const threshold = thresholds[index];
+
+      if (progress >= threshold) {
         card.classList.add('is-visible');
+      } else {
+        card.classList.remove('is-visible');
       }
+
+      card.style.setProperty(
+        '--reverse-delay',
+        isScrollingDown
+          ? `${index * 80}ms`
+          : `${(processCards.length - index - 1) * 80}ms`
+      );
     });
+
+    lastProgress = progress;
   };
 
   const requestUpdate = () => {

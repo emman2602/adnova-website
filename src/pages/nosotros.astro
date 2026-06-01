@@ -1,0 +1,877 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+import Contact from '../components/Contact.astro';
+
+
+const values = [
+  {
+    title: 'Claridad',
+    text: 'Explicamos las soluciones de forma sencilla, sin complicar al cliente con lenguaje innecesariamente técnico.'
+  },
+  {
+    title: 'Funcionalidad',
+    text: 'Priorizamos que cada solución sea útil, práctica y fácil de utilizar en la operación diaria.'
+  },
+  {
+    title: 'Profesionalismo',
+    text: 'Cuidamos la presentación, la estructura y la calidad técnica de cada proyecto.'
+  },
+  {
+    title: 'Cercanía',
+    text: 'Escuchamos antes de proponer, porque cada negocio tiene necesidades, procesos y prioridades distintas.'
+  },
+  {
+    title: 'Mejora continua',
+    text: 'Buscamos aprender, optimizar y elevar la calidad de cada solución que desarrollamos.'
+  }
+];
+
+const audiences = [
+  'Restaurantes',
+  'Tiendas',
+  'Negocios locales',
+  'Profesionistas',
+  'Empresas de servicios',
+  'Emprendimientos',
+  'Áreas administrativas',
+  'PyMEs en crecimiento'
+];
+---
+
+<Layout
+  title="Nosotros | ADNOVA Software Solutions"
+  description="Conoce ADNOVA, empresa de desarrollo de software enfocada en crear soluciones digitales claras, funcionales y adaptadas a negocios reales."
+  canonical="https://adnovasoftware.com.mx/nosotros"
+>
+  
+
+  <main class="about-page">
+    <section class="about-hero">
+      <div class="hero-copy reveal">
+        <span>Nosotros</span>
+
+        <h1>
+          Tecnología clara, útil y accesible para negocios que buscan crecer con más orden.
+        </h1>
+
+        <p>
+          Somos ADNOVA, una empresa de software enfocada en crear soluciones
+          digitales funcionales, profesionales y adaptadas a negocios reales.
+        </p>
+      </div>
+
+      <div class="hero-visual reveal-image">
+        <img
+          src="/images/about-main.webp"
+          alt="Empresa de desarrollo de software revisando una solución digital para negocios"
+          width="900"
+          height="1100"
+          loading="eager"
+          decoding="async"
+        />
+
+        <div class="floating-note">
+          <span>ADNOVA</span>
+          <strong>Software para negocios reales</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro-section">
+      <div class="section-index reveal">
+        <span>01</span>
+        <p>Quiénes somos</p>
+      </div>
+
+      <div class="intro-content reveal">
+        <h2>
+          Creamos tecnología práctica para negocios que necesitan orden, presencia y eficiencia.
+        </h2>
+
+        <p>
+          ADNOVA nace con la idea de ayudar a negocios y empresas a utilizar la
+          tecnología de una forma más práctica, profesional y cercana. Nos
+          enfocamos en entender las necesidades reales de cada cliente para crear
+          soluciones digitales que aporten claridad, estructura y valor.
+        </p>
+      </div>
+    </section>
+
+    <section class="purpose-section">
+      <div class="purpose-copy reveal">
+        <span>02 · Propósito</span>
+
+        <h2>
+          Existimos porque muchos negocios quieren digitalizarse, pero no encuentran soluciones claras.
+        </h2>
+
+        <p>
+          Muchos negocios necesitan mejorar su operación, pero se enfrentan a
+          sistemas complicados, soluciones genéricas o propuestas que no se adaptan
+          a su forma real de trabajar. Por eso buscamos crear tecnología que no
+          complique, sino que ayude a resolver problemas concretos.
+        </p>
+      </div>
+
+      <div class="purpose-image reveal-image">
+        <img
+          src="/images/about-process.webp"
+          alt="Planeación de procesos digitales y software empresarial"
+          width="900"
+          height="700"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </section>
+
+    <section class="philosophy-section">
+      <div class="section-index reveal">
+        <span>03</span>
+        <p>Filosofía</p>
+      </div>
+
+      <div class="philosophy-content">
+        <h2 class="reveal">
+          No desarrollamos tecnología solo por desarrollar.
+        </h2>
+
+        <p class="reveal">
+          Nuestro enfoque combina diseño, funcionalidad y visión de negocio.
+          Creemos en crear herramientas que tengan sentido, que sean fáciles de
+          usar y que realmente aporten valor a la operación del cliente.
+        </p>
+
+        <div class="philosophy-grid">
+          <article class="stagger-item" style="--i: 0">
+            <span>Diseño</span>
+            <p>Soluciones visualmente claras, profesionales y fáciles de entender.</p>
+          </article>
+
+          <article class="stagger-item" style="--i: 1">
+            <span>Función</span>
+            <p>Herramientas pensadas para resolver necesidades reales del negocio.</p>
+          </article>
+
+          <article class="stagger-item" style="--i: 2">
+            <span>Negocio</span>
+            <p>Decisiones técnicas alineadas con objetivos operativos y comerciales.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="difference-section">
+      <div class="difference-image reveal-image">
+        <img
+          src="/images/about-team.webp"
+          alt="Equipo revisando una solución de software empresarial"
+          width="900"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+
+      <div class="difference-copy reveal">
+        <span>04 · Diferencia</span>
+
+        <h2>
+          Cuidamos la comunicación, los detalles y el contexto real de cada negocio.
+        </h2>
+
+        <p>
+          Nos diferenciamos por mantener una comunicación clara, cuidar los
+          detalles visuales y técnicos, y construir soluciones pensadas para la
+          realidad de cada cliente. Buscamos que cada proyecto se sienta
+          profesional, útil y alineado a la identidad del negocio.
+        </p>
+      </div>
+    </section>
+
+    <section class="values-section">
+      <div class="values-heading reveal">
+        <span>05 · Valores</span>
+        <h2>Principios que guían nuestra forma de trabajar.</h2>
+      </div>
+
+      <div class="values-grid">
+        {values.map((value, index) => (
+          <article class="value-card stagger-item" style={`--i:${index}`}>
+            <span>{String(index + 1).padStart(2, '0')}</span>
+
+            <div>
+              <h3>{value.title}</h3>
+              <p>{value.text}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="vision-section">
+      <div class="vision-panel reveal">
+        <span>06 · Visión</span>
+
+        <h2>
+          Queremos convertirnos en un aliado tecnológico para negocios que buscan modernizarse.
+        </h2>
+
+        <p>
+          Nuestra visión es acompañar a empresas y negocios en su proceso de
+          transformación digital, ayudándoles a mejorar su operación, fortalecer
+          su presencia digital y construir herramientas que puedan crecer con ellos.
+        </p>
+      </div>
+    </section>
+
+    <section class="audience-section">
+      <div class="audience-heading reveal">
+        <span>07 · A quién ayudamos</span>
+
+        <h2>
+          Trabajamos con negocios que buscan dar el siguiente paso en su organización digital.
+        </h2>
+      </div>
+
+      <div class="audience-grid">
+        {audiences.map((item, index) => (
+          <span class="stagger-item" style={`--i:${index}`}>{item}</span>
+        ))}
+      </div>
+    </section>
+
+    <section class="closing-section">
+      <div class="closing-copy reveal">
+        <span>08 · Confianza</span>
+
+        <h2>
+          Más que desarrollar software, buscamos construir relaciones de confianza.
+        </h2>
+
+        <p>
+          Queremos trabajar con clientes que desean mejorar, ordenar sus procesos
+          y avanzar hacia una forma más profesional de operar. Cada proyecto es
+          una oportunidad para construir una solución útil, clara y con sentido.
+        </p>
+
+        <a href="/#contacto" class="closing-button">
+          Hablemos de tu proyecto
+          <strong>↗</strong>
+        </a>
+      </div>
+    </section>
+
+    <Contact />
+    
+  </main>
+</Layout>
+
+<style>
+  .about-page {
+    background: var(--bg);
+  }
+
+  .about-hero {
+    min-height: calc(100vh - 64px);
+    display: grid;
+    grid-template-columns: 0.58fr 0.42fr;
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-copy {
+    display: grid;
+    align-content: end;
+    gap: 28px;
+    padding: 72px 44px;
+    border-right: 1px solid var(--line);
+  }
+
+  .hero-copy > span,
+  .section-index span,
+  .purpose-copy > span,
+  .difference-copy > span,
+  .values-heading > span,
+  .vision-panel > span,
+  .audience-heading > span,
+  .closing-copy > span {
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--blue);
+    font-size: 12px;
+    line-height: 1;
+    font-weight: var(--weight-strong);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .hero-copy > span::before,
+  .section-index span::before,
+  .purpose-copy > span::before,
+  .difference-copy > span::before,
+  .values-heading > span::before,
+  .vision-panel > span::before,
+  .audience-heading > span::before,
+  .closing-copy > span::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: var(--blue);
+  }
+
+  .hero-copy h1 {
+    max-width: 1050px;
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(44px, 5.6vw, 100px);
+    line-height: 0.96;
+    font-weight: var(--weight-display);
+    letter-spacing: -0.078em;
+  }
+
+  .hero-copy p {
+    max-width: 760px;
+    margin: 0;
+    color: var(--muted);
+    font-size: var(--text-body-lg);
+    line-height: 1.48;
+    font-weight: var(--weight-body);
+    letter-spacing: -0.02em;
+  }
+
+  .hero-visual {
+    position: relative;
+    min-height: 720px;
+    overflow: hidden;
+    background: var(--panel);
+  }
+
+  .hero-visual img,
+  .purpose-image img,
+  .difference-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .floating-note {
+    position: absolute;
+    left: 28px;
+    right: 28px;
+    bottom: 28px;
+    display: grid;
+    gap: 10px;
+    padding: 22px;
+    background: rgba(244, 241, 232, 0.86);
+    backdrop-filter: blur(16px);
+    color: var(--ink);
+  }
+
+  .floating-note span {
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: var(--weight-strong);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .floating-note strong {
+    max-width: 320px;
+    font-size: 26px;
+    line-height: 1;
+    font-weight: var(--weight-heading);
+    letter-spacing: -0.055em;
+  }
+
+  .intro-section,
+  .philosophy-section {
+    display: grid;
+    grid-template-columns: 0.28fr 0.72fr;
+    gap: 86px;
+    padding: 96px 34px;
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .section-index {
+    display: grid;
+    align-content: start;
+    gap: 18px;
+  }
+
+  .section-index p {
+    max-width: 240px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.4;
+    font-weight: var(--weight-body);
+  }
+
+  .intro-content h2,
+  .philosophy-content h2,
+  .difference-copy h2,
+  .values-heading h2,
+  .vision-panel h2,
+  .audience-heading h2,
+  .closing-copy h2 {
+    max-width: 1000px;
+    margin: 0;
+    color: var(--ink);
+    font-size: var(--text-section);
+    line-height: 1;
+    font-weight: var(--weight-heading);
+    letter-spacing: -0.065em;
+  }
+
+  .intro-content p,
+  .philosophy-content > p,
+  .purpose-copy p,
+  .difference-copy p,
+  .vision-panel p,
+  .closing-copy p {
+    max-width: 760px;
+    margin: 28px 0 0;
+    color: var(--muted);
+    font-size: var(--text-body-lg);
+    line-height: 1.5;
+    font-weight: var(--weight-body);
+    letter-spacing: -0.02em;
+  }
+
+  .purpose-section {
+    display: grid;
+    grid-template-columns: 0.52fr 0.48fr;
+    min-height: 680px;
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .purpose-copy {
+    display: grid;
+    align-content: center;
+    padding: 70px 34px;
+    background: var(--black);
+    color: white;
+  }
+
+  .purpose-copy h2 {
+    max-width: 820px;
+    margin: 28px 0 0;
+    color: white;
+    font-size: clamp(38px, 4.5vw, 82px);
+    line-height: 0.98;
+    font-weight: var(--weight-heading);
+    letter-spacing: -0.072em;
+  }
+
+  .purpose-copy p {
+    color: rgba(255, 255, 255, 0.68);
+  }
+
+  .purpose-image {
+    min-height: 680px;
+    overflow: hidden;
+    background: var(--panel);
+  }
+
+  .philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    margin-top: 42px;
+  }
+
+  .philosophy-grid article {
+    min-height: 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 26px;
+    background: var(--panel);
+    transition:
+      background 0.25s ease,
+      color 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .philosophy-grid article:hover {
+    background: var(--black);
+    color: white;
+    transform: translateY(-4px);
+  }
+
+  .philosophy-grid span {
+    color: var(--blue);
+    font-size: 13px;
+    font-weight: var(--weight-strong);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .philosophy-grid p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.45;
+    font-weight: var(--weight-body);
+  }
+
+  .philosophy-grid article:hover p {
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .difference-section {
+    display: grid;
+    grid-template-columns: 0.42fr 0.58fr;
+    min-height: 680px;
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .difference-image {
+    min-height: 680px;
+    overflow: hidden;
+    background: var(--panel);
+    border-right: 1px solid var(--line);
+  }
+
+  .difference-copy {
+    display: grid;
+    align-content: end;
+    padding: 70px 34px;
+  }
+
+  .difference-copy h2 {
+    margin-top: 28px;
+    font-size: clamp(38px, 4.7vw, 86px);
+    line-height: 0.98;
+  }
+
+  .values-section {
+    padding: 96px 34px;
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .values-heading {
+    display: grid;
+    grid-template-columns: 0.28fr 0.72fr;
+    gap: 86px;
+    margin-bottom: 54px;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 4px;
+  }
+
+  .value-card {
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 26px;
+    background: var(--panel);
+    transition:
+      background 0.25s ease,
+      color 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .value-card:hover {
+    background: var(--black);
+    color: white;
+    transform: translateY(-4px);
+  }
+
+  .value-card > span {
+    color: var(--blue);
+    font-size: 13px;
+    font-weight: var(--weight-strong);
+    letter-spacing: 0.08em;
+  }
+
+  .value-card h3 {
+    margin: 0;
+    color: currentColor;
+    font-size: clamp(24px, 2.2vw, 34px);
+    line-height: 1;
+    font-weight: var(--weight-heading);
+    letter-spacing: -0.058em;
+  }
+
+  .value-card p {
+    margin: 18px 0 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.45;
+    font-weight: var(--weight-body);
+  }
+
+  .value-card:hover p {
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .vision-section {
+    padding: 34px;
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .vision-panel {
+    min-height: 560px;
+    display: grid;
+    align-content: end;
+    padding: 46px;
+    background: var(--blue);
+    color: white;
+  }
+
+  .vision-panel > span {
+    color: #dce6ff;
+  }
+
+  .vision-panel > span::before {
+    background: white;
+  }
+
+  .vision-panel h2 {
+    max-width: 980px;
+    margin-top: 28px;
+    color: white;
+    font-size: clamp(38px, 4.8vw, 88px);
+    line-height: 0.98;
+  }
+
+  .vision-panel p {
+    color: rgba(255, 255, 255, 0.76);
+  }
+
+  .audience-section {
+    display: grid;
+    grid-template-columns: 0.48fr 0.52fr;
+    gap: 70px;
+    padding: 96px 34px;
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .audience-heading {
+    display: grid;
+    align-content: start;
+    gap: 28px;
+  }
+
+  .audience-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+  }
+
+  .audience-grid span {
+    min-height: 96px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    background: var(--panel);
+    color: var(--ink);
+    font-size: 18px;
+    line-height: 1.2;
+    font-weight: var(--weight-medium);
+    letter-spacing: -0.035em;
+    transition:
+      background 0.25s ease,
+      color 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .audience-grid span:hover {
+    background: var(--black);
+    color: white;
+    transform: translateY(-4px);
+  }
+
+  .closing-section {
+    padding: 100px 34px;
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--black);
+    color: white;
+  }
+
+  .closing-copy h2 {
+    max-width: 980px;
+    margin-top: 28px;
+    color: white;
+  }
+
+  .closing-copy p {
+    color: rgba(255, 255, 255, 0.68);
+  }
+
+  .closing-button {
+    width: min(390px, 100%);
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 38px;
+    padding: 0 24px;
+    background: var(--blue);
+    color: white;
+    font-size: 16px;
+    font-weight: var(--weight-medium);
+    text-decoration: none;
+    transition:
+      background 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .closing-button:hover {
+    background: var(--blue-dark);
+    transform: translateY(-2px);
+  }
+
+  .closing-button strong {
+    font-size: 28px;
+    font-weight: 400;
+  }
+
+  @media (max-width: 1200px) {
+    .values-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .about-hero,
+    .purpose-section,
+    .difference-section,
+    .intro-section,
+    .philosophy-section,
+    .values-heading,
+    .audience-section {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-copy,
+    .difference-image,
+    .purpose-image {
+      border-right: 0;
+    }
+
+    .hero-visual,
+    .purpose-image,
+    .difference-image {
+      min-height: 520px;
+    }
+
+    .philosophy-grid,
+    .values-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 700px) {
+    .about-hero,
+    .intro-section,
+    .philosophy-section,
+    .values-section,
+    .audience-section,
+    .closing-section,
+    .vision-section {
+      border-left: 0;
+      border-right: 0;
+    }
+
+    .hero-copy,
+    .intro-section,
+    .philosophy-section,
+    .values-section,
+    .audience-section,
+    .closing-section {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .hero-copy {
+      padding-top: 56px;
+      padding-bottom: 56px;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(40px, 11vw, 64px);
+      line-height: 1;
+    }
+
+    .hero-visual,
+    .purpose-image,
+    .difference-image {
+      min-height: 420px;
+    }
+
+    .intro-section,
+    .philosophy-section,
+    .values-section,
+    .audience-section,
+    .closing-section {
+      padding-top: 68px;
+      padding-bottom: 68px;
+    }
+
+    .purpose-copy,
+    .difference-copy {
+      padding: 64px 20px;
+    }
+
+    .purpose-copy h2,
+    .difference-copy h2,
+    .vision-panel h2 {
+      font-size: clamp(36px, 10vw, 58px);
+    }
+
+    .philosophy-grid,
+    .values-grid,
+    .audience-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .value-card {
+      min-height: 280px;
+    }
+
+    .vision-section {
+      padding: 20px;
+    }
+
+    .vision-panel {
+      min-height: 480px;
+      padding: 28px;
+    }
+
+    .closing-button {
+      width: 100%;
+    }
+
+    .floating-note {
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+    }
+  }
+</style>

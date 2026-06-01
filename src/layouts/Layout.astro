@@ -1,19 +1,32 @@
 ---
 import '../styles/source-theme.css';
 
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
 interface Props {
   title?: string;
   description?: string;
+  canonical?: string;
+  ogImage?: string;
+  preloadHero?: boolean;
+  showNav?: boolean;
+  showFooter?: boolean;
 }
 
 const {
-  title = 'ADNOVA® | Desarrollo de software',
-  description = 'ADNOVA diseña software a medida, automatización, dashboards e integraciones para PyMEs en México.'
+  title = 'ADNOVA® | Desarrollo de software para PyMEs',
+  description = 'ADNOVA diseña software a medida, automatización, dashboards e integraciones para PyMEs en México.',
+  canonical = 'https://adnovasoftware.com.mx/',
+  ogImage = 'https://adnovasoftware.com.mx/images/og-image.jpg',
+  preloadHero = false,
+  showNav = true,
+  showFooter = true
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es-MX">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,32 +34,90 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
 
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_MX" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="ADNOVA Software Solutions" />
 
-    <link
-    rel="preload"
-    as="image"
-    href="/images/hero-adnova.webp"
-    fetchpriority="high"
-  />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    {preloadHero && (
+      <link
+        rel="preload"
+        as="image"
+        href="/images/hero-adnova.webp"
+        fetchpriority="high"
+      />
+    )}
+
+    <link rel="icon" type="image/png" href="/favicon.png?v=3" />
+    <link rel="shortcut icon" type="image/png" href="/favicon.png?v=3" />
+    <link rel="apple-touch-icon" href="/favicon.png?v=3" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="icon" type="image/png" href="/favicon.png?v=3" />
-<link rel="shortcut icon" type="image/png" href="/favicon.png?v=3" />
-<link rel="apple-touch-icon" href="/favicon.png?v=3" />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'ProfessionalService',
+      name: 'ADNOVA Software Solutions',
+      url: 'https://adnovasoftware.com.mx',
+      logo: 'https://adnovasoftware.com.mx/images/logoADNOVA-nav.webp',
+      description:
+        'Empresa de desarrollo de software a medida, automatización, sistemas administrativos, dashboards y páginas web para PyMEs en México.',
+      areaServed: 'México',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Oaxaca',
+        addressCountry: 'MX'
+      },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: '+52-951-269-0421',
+        contactType: 'customer service',
+        availableLanguage: ['Spanish']
+      }
+    })} />
   </head>
 
   <body>
+    {showNav && <Nav />}
+
     <slot />
+
+    {showFooter && <Footer />}
+
+    <script>
+      const animatedElements = document.querySelectorAll(
+        '.reveal, .reveal-image, .reveal-soft, .stagger-item, .text-mask'
+      );
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -60px 0px'
+      });
+
+      animatedElements.forEach((element) => observer.observe(element));
+    </script>
   </body>
 </html>
