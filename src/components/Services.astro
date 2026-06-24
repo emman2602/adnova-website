@@ -8,6 +8,7 @@ const services = [
     tags: ["#ERP", "#Inventario", "#Operación"],
     image: "Sistemas administrativos",
     imageUrl: "/images/sistema_admin.webp",
+    href: "/servicios#sistemas-administrativos",
   },
   {
     number: "02",
@@ -17,6 +18,7 @@ const services = [
     tags: ["#Web", "#SEO", "#Landing pages"],
     image: "Páginas web y presencia digital",
     imageUrl: "/images/paginas_web.webp",
+    href: "/servicios#paginas-web",
   },
   {
     number: "03",
@@ -26,6 +28,7 @@ const services = [
     tags: ["#POS", "#Ventas", "#Stock"],
     image: "Punto de venta e inventario",
     imageUrl: "/images/inventario.webp",
+    href: "/servicios#punto-de-venta",
   },
   {
     number: "04",
@@ -35,6 +38,7 @@ const services = [
     tags: ["#Workflows", "#Productividad", "#Procesos"],
     image: "Automatización de procesos",
     imageUrl: "/images/automatizacion.webp",
+    href: "/servicios#automatizacion",
   },
   {
     number: "05",
@@ -44,6 +48,7 @@ const services = [
     tags: ["#Dashboards", "#APIs", "#Reportes"],
     image: "Dashboards e integraciones",
     imageUrl: "/images/dashboard.webp",
+    href: "/servicios#dashboards-integraciones",
   },
 ];
 ---
@@ -72,7 +77,7 @@ const services = [
             </div>
           </div>
 
-          <a href="#contacto" class="learn-link">
+          <a href={service.href} class="learn-link">
             Conocer más ↗
           </a>
 

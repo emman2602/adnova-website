@@ -1,0 +1,622 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Contact from '../components/Contact.astro';
+
+const services = [
+  {
+    id: 'sistemas-administrativos',
+    number: '01',
+    title: 'Sistemas administrativos',
+    image: '/images/sistema_admin.webp',
+    alt: 'Sistema administrativo para controlar operaciones empresariales',
+    description:
+      'Creamos plataformas internas para centralizar ventas, compras, clientes, proveedores, inventario, usuarios, documentos y reportes en un solo entorno de trabajo.',
+    recommended:
+      'Empresas, PyMEs, áreas administrativas y negocios que ya operan con varios archivos, mensajes o herramientas desconectadas.',
+    problems: [
+      'Información duplicada o dispersa.',
+      'Procesos manuales difíciles de supervisar.',
+      'Falta de reportes confiables para tomar decisiones.',
+      'Dependencia de hojas de cálculo que ya no alcanzan.'
+    ],
+    includes: [
+      'Módulos de clientes, proveedores, ventas y compras.',
+      'Control de usuarios, permisos y roles.',
+      'Reportes operativos y exportación de información.',
+      'Paneles de seguimiento para áreas clave.'
+    ]
+  },
+  {
+    id: 'paginas-web',
+    number: '02',
+    title: 'Páginas web y presencia digital',
+    image: '/images/paginas_web.webp',
+    alt: 'Página web profesional para presencia digital empresarial',
+    description:
+      'Diseñamos sitios web profesionales, landing pages y experiencias digitales que comunican confianza, explican servicios y ayudan a convertir visitantes en prospectos.',
+    recommended:
+      'Negocios, profesionistas y empresas que necesitan verse más confiables, explicar mejor lo que ofrecen y facilitar el primer contacto.',
+    problems: [
+      'Imagen digital poco profesional o desactualizada.',
+      'Clientes que no entienden claramente los servicios.',
+      'Dependencia exclusiva de redes sociales.',
+      'Pérdida de oportunidades por falta de canales de contacto claros.'
+    ],
+    includes: [
+      'Sitio informativo o landing page orientada a conversión.',
+      'Estructura de contenido clara y responsive.',
+      'SEO técnico básico y metadatos.',
+      'Integración con WhatsApp, correo o formularios.'
+    ]
+  },
+  {
+    id: 'punto-de-venta',
+    number: '03',
+    title: 'Punto de venta e inventario',
+    image: '/images/punto_venta.webp',
+    alt: 'Punto de venta e inventario para negocios',
+    description:
+      'Desarrollamos soluciones para registrar ventas, controlar productos, monitorear existencias, revisar cortes y mantener visibilidad sobre sucursales o almacenes.',
+    recommended:
+      'Tiendas, restaurantes, comercios y negocios que necesitan controlar ventas e inventario con menos errores y más rapidez.',
+    problems: [
+      'Inventario impreciso o actualizado tarde.',
+      'Cortes de caja manuales o poco claros.',
+      'Falta de control sobre productos, precios y movimientos.',
+      'Poca visibilidad de ventas por día, producto o sucursal.'
+    ],
+    includes: [
+      'Registro de ventas y movimientos de inventario.',
+      'Catálogo de productos, categorías y precios.',
+      'Cortes, reportes y consultas rápidas.',
+      'Control básico por usuario, caja o sucursal.'
+    ]
+  },
+  {
+    id: 'automatizacion',
+    number: '04',
+    title: 'Automatización de procesos',
+    image: '/images/automatizacion.webp',
+    alt: 'Automatización de procesos empresariales',
+    description:
+      'Convertimos tareas repetitivas en flujos digitales para ahorrar tiempo, reducir errores y facilitar que el equipo trabaje con información actualizada.',
+    recommended:
+      'Equipos que repiten capturas, envíos, revisiones, aprobaciones o reportes de forma manual y quieren operar con mayor fluidez.',
+    problems: [
+      'Tiempo perdido en tareas repetidas.',
+      'Errores por captura manual.',
+      'Seguimientos que dependen de memoria o mensajes.',
+      'Procesos difíciles de medir o estandarizar.'
+    ],
+    includes: [
+      'Flujos de captura, validación y seguimiento.',
+      'Notificaciones, recordatorios o estados de proceso.',
+      'Formularios internos y paneles de avance.',
+      'Conexiones entre herramientas cuando el proyecto lo requiere.'
+    ]
+  },
+  {
+    id: 'dashboards-integraciones',
+    number: '05',
+    title: 'Dashboards e integraciones',
+    image: '/images/dashboard.webp',
+    alt: 'Dashboard empresarial con reportes e integraciones',
+    description:
+      'Conectamos datos, sistemas y APIs para construir dashboards que muestren indicadores útiles, reduzcan archivos dispersos y permitan consultar información clave con rapidez.',
+    recommended:
+      'Empresas que necesitan entender mejor sus ventas, operación, inventario, clientes o desempeño sin depender de reportes manuales.',
+    problems: [
+      'Datos repartidos en varias plataformas.',
+      'Reportes manuales lentos o inconsistentes.',
+      'Falta de indicadores visibles para dirigir el negocio.',
+      'Herramientas que no se comunican entre sí.'
+    ],
+    includes: [
+      'Dashboards con indicadores operativos o comerciales.',
+      'Conexión con APIs, bases de datos o archivos estructurados.',
+      'Filtros, vistas y reportes por periodo.',
+      'Integraciones ajustadas al flujo de trabajo del negocio.'
+    ]
+  }
+];
+---
+
+<Layout
+  title="Servicios | ADNOVA Software Solutions"
+  description="ADNOVA desarrolla sistemas administrativos, páginas web, puntos de venta, automatización, dashboards e integraciones para empresas y PyMEs."
+  canonical="https://adnovasoftware.com.mx/servicios"
+>
+  <main class="services-page">
+    <section class="services-hero page-shell">
+      <div class="hero-copy reveal">
+        <span class="eyebrow">Servicios</span>
+        <h1>Soluciones digitales para empresas que quieren operar mejor.</h1>
+        <p>
+          ADNOVA desarrolla sistemas, sitios web, automatizaciones, dashboards e
+          integraciones para negocios que necesitan más control, menos trabajo
+          manual y una presencia digital profesional.
+        </p>
+      </div>
+
+      <div class="hero-visual reveal-image">
+        <img
+          src="/images/pagina_empresarial.webp"
+          alt="Soluciones digitales empresariales desarrolladas por ADNOVA"
+          width="900"
+          height="1000"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+    </section>
+
+    <section class="service-nav page-shell" aria-label="Navegación de servicios">
+      {services.map((service) => (
+        <a href={`#${service.id}`}>
+          <span>{service.number}</span>
+          {service.title}
+        </a>
+      ))}
+    </section>
+
+    <section class="services-list page-shell">
+      {services.map((service, index) => (
+        <article id={service.id} class:list={['service-detail', index % 2 === 1 && 'is-reversed']}>
+          <div class="service-media reveal-image">
+            <img
+              src={service.image}
+              alt={service.alt}
+              width="900"
+              height="760"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          <div class="service-content reveal">
+            <span class="eyebrow">{service.number} · {service.title}</span>
+            <h2>{service.title}</h2>
+            <p class="lead">{service.description}</p>
+
+            <div class="detail-block recommended">
+              <h3>Para quién es recomendado</h3>
+              <p>{service.recommended}</p>
+            </div>
+
+            <div class="detail-grid">
+              <div class="detail-block">
+                <h3>Qué problemas resuelve</h3>
+                <ul>
+                  {service.problems.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div class="detail-block">
+                <h3>Qué puede incluir</h3>
+                <ul>
+                  {service.includes.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <a href="/#contacto" class="service-button">
+              Solicitar diagnóstico
+              <strong>↗</strong>
+            </a>
+          </div>
+        </article>
+      ))}
+    </section>
+
+    <section class="services-closing page-shell">
+      <div class="closing-panel reveal">
+        <span class="eyebrow">Diagnóstico</span>
+        <h2>Si tu operación ya pide más orden, probablemente hay una solución digital esperando ser diseñada.</h2>
+        <p>
+          Podemos ayudarte a definir qué conviene construir primero, qué procesos
+          tienen mayor impacto y cómo convertir una necesidad operativa en una
+          herramienta clara para tu equipo.
+        </p>
+        <a href="/#contacto" class="service-button light">
+          Hablemos de tu proyecto
+          <strong>↗</strong>
+        </a>
+      </div>
+    </section>
+
+    <Contact />
+  </main>
+</Layout>
+
+<style>
+  .services-page {
+    background: var(--bg);
+  }
+
+  .page-shell {
+    width: calc(100% - 64px);
+    max-width: 1820px;
+    margin: 0 auto;
+  }
+
+  .services-hero {
+    min-height: calc(100vh - 64px);
+    display: grid;
+    grid-template-columns: 0.58fr 0.42fr;
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-copy {
+    display: grid;
+    align-content: end;
+    gap: 28px;
+    padding: 72px 44px;
+    border-right: 1px solid var(--line);
+  }
+
+  .eyebrow {
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--blue);
+    font-size: 12px;
+    line-height: 1;
+    font-weight: var(--weight-strong);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: currentColor;
+  }
+
+  .hero-copy h1 {
+    max-width: 1050px;
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(44px, 5.6vw, 100px);
+    line-height: 0.96;
+    font-weight: var(--weight-display);
+    letter-spacing: -0.078em;
+  }
+
+  .hero-copy p {
+    max-width: 780px;
+    margin: 0;
+    color: var(--muted);
+    font-size: var(--text-body-lg);
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-visual,
+  .service-media {
+    min-height: 680px;
+    overflow: hidden;
+    background: var(--panel);
+  }
+
+  .hero-visual img,
+  .service-media img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .service-nav {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--bg);
+  }
+
+  .service-nav a {
+    min-height: 104px;
+    display: grid;
+    align-content: center;
+    gap: 10px;
+    padding: 20px;
+    border-right: 1px solid var(--line);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: var(--weight-medium);
+    text-decoration: none;
+    transition:
+      background 0.25s ease,
+      color 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .service-nav a:last-child {
+    border-right: 0;
+  }
+
+  .service-nav a:hover {
+    background: var(--black);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  .service-nav span {
+    color: var(--blue);
+    font-size: 13px;
+    font-weight: var(--weight-strong);
+    letter-spacing: 0.08em;
+  }
+
+  .service-nav a:hover span {
+    color: #c6d5ff;
+  }
+
+  .services-list {
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+  }
+
+  .service-detail {
+    scroll-margin-top: 84px;
+    display: grid;
+    grid-template-columns: 0.42fr 0.58fr;
+    min-height: 760px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .service-detail.is-reversed {
+    grid-template-columns: 0.58fr 0.42fr;
+  }
+
+  .service-detail.is-reversed .service-media {
+    order: 2;
+    border-left: 1px solid var(--line);
+  }
+
+  .service-detail:not(.is-reversed) .service-media {
+    border-right: 1px solid var(--line);
+  }
+
+  .service-content {
+    display: grid;
+    align-content: center;
+    gap: 28px;
+    padding: 70px 34px;
+  }
+
+  .service-content h2,
+  .closing-panel h2 {
+    max-width: 980px;
+    margin: 0;
+    color: var(--ink);
+    font-size: var(--text-section);
+    line-height: 1;
+    font-weight: var(--weight-heading);
+    letter-spacing: -0.065em;
+  }
+
+  .lead,
+  .detail-block p,
+  .closing-panel p {
+    max-width: 780px;
+    margin: 0;
+    color: var(--muted);
+    font-size: var(--text-body-lg);
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+  }
+
+  .detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  .detail-block {
+    padding: 24px;
+    background: var(--panel);
+  }
+
+  .detail-block.recommended {
+    max-width: 880px;
+  }
+
+  .detail-block h3 {
+    margin: 0 0 16px;
+    color: var(--ink);
+    font-size: 18px;
+    line-height: 1.1;
+    font-weight: var(--weight-heading);
+    letter-spacing: -0.04em;
+  }
+
+  .detail-block ul {
+    display: grid;
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .detail-block li {
+    position: relative;
+    padding-left: 20px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .detail-block li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 7px;
+    height: 7px;
+    background: var(--blue);
+  }
+
+  .service-button {
+    width: min(390px, 100%);
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4px;
+    padding: 0 24px;
+    background: var(--black);
+    color: white;
+    font-size: 16px;
+    font-weight: var(--weight-medium);
+    text-decoration: none;
+    transition:
+      background 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .service-button:hover {
+    background: var(--blue);
+    transform: translateY(-2px);
+  }
+
+  .service-button strong {
+    font-size: 28px;
+    font-weight: 400;
+  }
+
+  .services-closing {
+    padding: 34px;
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .closing-panel {
+    min-height: 560px;
+    display: grid;
+    align-content: end;
+    gap: 28px;
+    padding: 46px;
+    background: var(--blue);
+    color: white;
+  }
+
+  .closing-panel .eyebrow {
+    color: #dce6ff;
+  }
+
+  .closing-panel h2 {
+    max-width: 1040px;
+    color: white;
+  }
+
+  .closing-panel p {
+    color: rgba(255, 255, 255, 0.76);
+  }
+
+  .service-button.light {
+    background: white;
+    color: var(--blue);
+  }
+
+  .service-button.light:hover {
+    background: #eaf0ff;
+  }
+
+  @media (max-width: 1180px) {
+    .service-nav {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .services-hero,
+    .service-detail,
+    .service-detail.is-reversed {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-copy,
+    .service-detail:not(.is-reversed) .service-media,
+    .service-detail.is-reversed .service-media {
+      border-right: 0;
+      border-left: 0;
+    }
+
+    .service-detail.is-reversed .service-media {
+      order: 0;
+    }
+
+    .hero-visual,
+    .service-media {
+      min-height: 520px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .page-shell {
+      width: 100%;
+    }
+
+    .services-hero,
+    .service-nav,
+    .services-list,
+    .services-closing {
+      border-left: 0;
+      border-right: 0;
+    }
+
+    .hero-copy,
+    .service-content {
+      padding: 56px 20px;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(40px, 11vw, 64px);
+      line-height: 1;
+    }
+
+    .hero-visual,
+    .service-media {
+      min-height: 420px;
+    }
+
+    .service-nav {
+      grid-template-columns: 1fr;
+    }
+
+    .service-nav a {
+      min-height: 74px;
+      border-right: 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .detail-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .service-button {
+      width: 100%;
+    }
+
+    .services-closing {
+      padding: 20px;
+    }
+
+    .closing-panel {
+      min-height: 480px;
+      padding: 28px;
+    }
+  }
+</style>

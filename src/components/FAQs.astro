@@ -1,0 +1,336 @@
+---
+const faqs = [
+  {
+    question: '¿Qué tipo de software desarrolla ADNOVA?',
+    answer:
+      'Desarrollamos soluciones digitales a medida para PyMEs, incluyendo sistemas administrativos, control de inventarios, puntos de venta, dashboards, automatización de procesos, páginas web e integraciones entre plataformas.'
+  },
+  {
+    question: '¿Trabajan con negocios pequeños o solo con empresas grandes?',
+    answer:
+      'Trabajamos principalmente con PyMEs que buscan optimizar sus procesos, reducir trabajo manual y mejorar el control de su operación. Adaptamos cada solución al tamaño y necesidades de cada negocio.'
+  },
+  {
+    question: '¿Cuánto tiempo tarda el desarrollo de un proyecto?',
+    answer:
+      'Depende del alcance y complejidad. Algunos proyectos pueden desarrollarse en pocas semanas, mientras que soluciones más completas requieren varios meses. Antes de iniciar realizamos un diagnóstico para estimar tiempos y entregables.'
+  },
+  {
+    question: '¿Pueden ayudarme a definir la mejor solución para mi negocio?',
+    answer:
+      'Sí. Analizamos tus procesos, objetivos y desafíos actuales para recomendar la herramienta o sistema que genere el mayor impacto en tu operación.'
+  },
+  {
+    question: '¿El software se adapta a mi negocio o debo cambiar mis procesos?',
+    answer:
+      'Nuestro objetivo es desarrollar soluciones alineadas con la operación real de tu empresa. Analizamos tus procesos actuales para diseñar herramientas que se adapten a tus necesidades y objetivos.'
+  },
+  {
+    question: '¿Pueden mejorar un sistema que ya utilizo actualmente?',
+    answer:
+      'Sí. Podemos realizar mejoras, agregar funcionalidades, automatizar procesos o integrar sistemas existentes para aprovechar la infraestructura que ya utiliza tu negocio.'
+  },
+  {
+    question: '¿Ofrecen soporte después de entregar el proyecto?',
+    answer:
+      'Sí. Dependiendo del proyecto podemos ofrecer soporte técnico, mantenimiento, corrección de incidencias y mejoras evolutivas para asegurar el correcto funcionamiento de la solución.'
+  },
+  {
+    question: '¿También desarrollan páginas web?',
+    answer:
+      'Sí. Diseñamos sitios web corporativos, landing pages, catálogos digitales y plataformas personalizadas que ayudan a fortalecer la presencia digital de tu negocio y facilitar el contacto con clientes.'
+  },
+  {
+    question: '¿Cómo puedo solicitar una cotización?',
+    answer:
+      'Puedes contactarnos mediante el formulario de la página, correo electrónico o WhatsApp. Revisaremos tus necesidades y te orientaremos sobre la solución más adecuada para tu negocio.'
+  }
+];
+---
+
+<section id="preguntas-frecuentes" class="faq-section source-container reveal">
+  <div class="faq-heading">
+    <span>FAQs</span>
+
+    <h2>Preguntas frecuentes</h2>
+
+    <p>
+      Resolvemos las dudas más comunes antes de iniciar un proyecto digital.
+    </p>
+  </div>
+
+  <div class="faq-list">
+    {faqs.map((faq, index) => (
+      <details class="faq-item stagger-item" style={`--i:${index}`}>
+        <summary>
+          <span class="faq-number">{String(index + 1).padStart(2, '0')}</span>
+          <span class="faq-question">{faq.question}</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </summary>
+
+        <div class="faq-answer">
+          <p>{faq.answer}</p>
+        </div>
+      </details>
+    ))}
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    padding: 92px 34px 102px;
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--bg);
+  }
+
+  .faq-heading {
+    display: grid;
+    grid-template-columns: 0.34fr minmax(0, 0.66fr);
+    gap: 24px 76px;
+    align-items: end;
+    margin-bottom: 56px;
+  }
+
+  .faq-heading span {
+    grid-column: 1 / -1;
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--blue);
+    font-size: 12px;
+    line-height: 1;
+    font-weight: var(--weight-strong);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .faq-heading span::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: var(--blue);
+  }
+
+  .faq-heading h2 {
+    max-width: 780px;
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(40px, 5vw, 84px);
+    line-height: 0.98;
+    font-weight: 650;
+    letter-spacing: -0.075em;
+  }
+
+  .faq-heading p {
+    max-width: 610px;
+    margin: 0;
+    color: var(--muted);
+    font-size: var(--text-body-lg);
+    line-height: 1.42;
+    font-weight: var(--weight-body);
+    letter-spacing: -0.025em;
+  }
+
+  .faq-list {
+    border-top: 1px solid var(--line);
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+    background: transparent;
+    transition: background 0.25s ease;
+  }
+
+  .faq-item:hover,
+  .faq-item[open] {
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  .faq-item summary {
+    display: grid;
+    grid-template-columns: 76px minmax(0, 1fr) 44px;
+    gap: 24px;
+    align-items: center;
+    min-height: 104px;
+    padding: 28px 0;
+    color: var(--ink);
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-number {
+    color: var(--blue);
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 650;
+    letter-spacing: -0.045em;
+  }
+
+  .faq-question {
+    max-width: 980px;
+    color: var(--ink);
+    font-size: clamp(23px, 2.1vw, 36px);
+    line-height: 1.08;
+    font-weight: 620;
+    letter-spacing: -0.055em;
+  }
+
+  .faq-icon {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    transition:
+      background 0.25s ease,
+      border-color 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .faq-icon::before,
+  .faq-icon::after {
+    content: "";
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: 16px;
+    height: 2px;
+    background: var(--blue);
+    transform: translate(-50%, -50%);
+    transition:
+      background 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .faq-icon::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+
+  .faq-item[open] .faq-icon {
+    border-color: var(--blue);
+    background: var(--blue);
+    transform: rotate(180deg);
+  }
+
+  .faq-item[open] .faq-icon::before,
+  .faq-item[open] .faq-icon::after {
+    background: white;
+  }
+
+  .faq-item[open] .faq-icon::after {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  .faq-answer {
+    display: grid;
+    grid-template-columns: 76px minmax(0, 820px) 44px;
+    gap: 24px;
+    padding: 0 0 34px;
+  }
+
+  .faq-answer p {
+    grid-column: 2;
+    margin: 0;
+    color: var(--muted);
+    font-size: clamp(16px, 1.2vw, 19px);
+    line-height: 1.55;
+    font-weight: 430;
+    letter-spacing: -0.02em;
+  }
+
+  @media (max-width: 980px) {
+    .faq-section {
+      padding: 78px 34px 88px;
+    }
+
+    .faq-heading {
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+
+    .faq-heading h2 {
+      max-width: 760px;
+      font-size: clamp(38px, 8vw, 64px);
+    }
+  }
+
+  @media (max-width: 700px) {
+    .faq-section {
+      padding: 70px 20px 76px;
+      border-left: 0;
+      border-right: 0;
+    }
+
+    .faq-heading {
+      margin-bottom: 42px;
+    }
+
+    .faq-heading h2 {
+      font-size: clamp(36px, 10vw, 52px);
+      line-height: 1;
+    }
+
+    .faq-heading p {
+      font-size: 17px;
+    }
+
+    .faq-item summary {
+      grid-template-columns: 44px minmax(0, 1fr) 38px;
+      gap: 14px;
+      min-height: 88px;
+      padding: 22px 0;
+    }
+
+    .faq-number {
+      font-size: 15px;
+    }
+
+    .faq-question {
+      font-size: clamp(21px, 6vw, 29px);
+      line-height: 1.12;
+      letter-spacing: -0.052em;
+    }
+
+    .faq-icon {
+      width: 38px;
+      height: 38px;
+    }
+
+    .faq-answer {
+      grid-template-columns: 44px minmax(0, 1fr) 38px;
+      gap: 14px;
+      padding-bottom: 28px;
+    }
+
+    .faq-answer p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  }
+
+  @media (max-width: 430px) {
+    .faq-item summary,
+    .faq-answer {
+      grid-template-columns: 1fr 36px;
+    }
+
+    .faq-number {
+      display: none;
+    }
+
+    .faq-answer p {
+      grid-column: 1 / -1;
+    }
+
+    .faq-icon {
+      width: 36px;
+      height: 36px;
+    }
+  }
+</style>

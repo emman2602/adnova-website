@@ -2,26 +2,43 @@
 const year = new Date().getFullYear();
 
 const companyLinks = [
-  { label: 'Nosotros', href: '#empresa' },
-  { label: 'Servicios', href: '#expertise' },
-  { label: 'Proyectos', href: '#trabajo' },
-  { label: 'Proceso', href: '#proceso' },
-  { label: 'Contacto', href: '#contacto' }
+  { label: 'Inicio', href: '/' },
+  { label: 'Nosotros', href: '/nosotros' },  
+  { label: 'Servicios', href: '/servicios' },
+  { label: 'Proyectos', href: '/#trabajo' },
+  { label: 'Proceso', href: '/#proceso' },
+  { label: 'FAQs', href: '/#preguntas-frecuentes' },
+  { label: 'Contacto', href: '/#contacto' }
 ];
 
 const serviceLinks = [
-  'Sistemas administrativos',
-  'Punto de venta e inventario',
-  'Automatización de procesos',
-  'Dashboards y reportes',
-  'Páginas web y presencia digital'
+  {
+    label: 'Sistemas administrativos',
+    href: '/servicios#sistemas-administrativos'
+  },
+  {
+    label: 'Punto de venta e inventario',
+    href: '/servicios#punto-de-venta'
+  },
+  {
+    label: 'Automatización de procesos',
+    href: '/servicios#automatizacion'
+  },
+  {
+    label: 'Dashboards e integraciones',
+    href: '/servicios#dashboards-integraciones'
+  },
+  {
+    label: 'Páginas web y presencia digital',
+    href: '/servicios#paginas-web'
+  }
 ];
 ---
 
 <footer class="footer source-container">
   <div class="footer-main">
     <div class="footer-brand">
-      <a href="#inicio" class="footer-logo" aria-label="Ir al inicio">
+      <a href="/" class="footer-logo" aria-label="Ir al inicio">
         <span>◆</span>
         ADNOVA®
       </a>
@@ -33,7 +50,7 @@ const serviceLinks = [
 
       <div class="footer-actions">
         <a
-          href="https://wa.me/529512690421?text=Hola%20ADNOVA%2C%20quiero%20un%20diagnóstico%20para%20mi%20negocio"
+          href="https://wa.me/525655250768?text=Hola%20ADNOVA%2C%20quiero%20un%20diagn%C3%B3stico%20para%20mi%20negocio"
           target="_blank"
           class="footer-cta"
         >
@@ -60,14 +77,14 @@ const serviceLinks = [
         <span>Servicios</span>
 
         {serviceLinks.map((service) => (
-          <a href="#expertise">{service}</a>
+          <a href={service.href}>{service.label}</a>
         ))}
       </div>
 
       <div class="footer-column">
         <span>Contacto</span>
 
-        <a href="tel:+529512690421">+52 951 269 0421</a>
+        <a href="tel:+525655250768">+52 5655250768</a>
         <p>Oaxaca, México</p>
         <p>Atención local y remota</p>
       </div>
@@ -77,7 +94,7 @@ const serviceLinks = [
   <div class="footer-bottom">
     <span>© {year} ADNOVA Software Solutions</span>
     <span>Hecho en México</span>
-    <a href="#inicio">Volver arriba ↑</a>
+    <a href="/">Volver arriba ↑</a>
   </div>
 </footer>
 

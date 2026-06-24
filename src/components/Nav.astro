@@ -2,7 +2,7 @@
 ---
 
 <header class="topbar" id="topbar">
-  <a href="#inicio" class="brand" aria-label="ADNOVA - Ir al inicio">
+  <a href="/" class="brand" aria-label="ADNOVA - Ir al inicio">
     <img
       src="/images/logoADNOVA.png"
       alt="ADNOVA Software Solutions"
@@ -17,13 +17,14 @@
   </div>
 
   <nav class="desktop-nav" aria-label="Navegación principal">
-    <a href="#empresa" class="nav-cell">Nosotros</a>
-    <a href="#expertise" class="nav-cell">Servicios</a>
-    <a href="#trabajo" class="nav-cell">Proyectos</a>
-    <a href="#proceso" class="nav-cell">Proceso</a>
+    <a href="/" class="nav-cell">Inicio</a>
+    <a href="/nosotros" class="nav-cell">Nosotros</a>
+    <a href="/servicios" class="nav-cell">Servicios</a>
+    <a href="/#trabajo" class="nav-cell">Proyectos</a>
+    <a href="/#proceso" class="nav-cell">Proceso</a>
   </nav>
 
-  <a href="#contacto" class="contact-cell">Contacto</a>
+  <a href="/#contacto" class="contact-cell">Contacto</a>
 
   <button
     class="menu-button"
@@ -39,11 +40,12 @@
 </header>
 
 <nav class="mobile-menu" id="mobile-menu" aria-label="Menú móvil">
-  <a href="#empresa">Nosotros</a>
-  <a href="#expertise">Servicios</a>
-  <a href="#trabajo">Proyectos</a>
-  <a href="#proceso">Proceso</a>
-  <a href="#contacto">Contacto</a>
+  <a href="/">Inicio</a>
+  <a href="/nosotros">Nosotros</a>
+  <a href="/servicios">Servicios</a>
+  <a href="/#trabajo">Proyectos</a>
+  <a href="/#proceso">Proceso</a>
+  <a href="/#contacto">Contacto</a>
 </nav>
 
 <style>
@@ -53,7 +55,7 @@
     z-index: 80;
     height: 64px;
     display: grid;
-    grid-template-columns: 1.45fr 1fr 2.88fr 0.8fr;
+    grid-template-columns: 1.25fr 0.9fr 4fr 0.8fr;
     border-bottom: 1px solid var(--line);
     background: rgba(243, 242, 237, 0.94);
     backdrop-filter: blur(18px);
@@ -103,7 +105,7 @@
 
   .desktop-nav {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     min-width: 0;
   }
 
@@ -214,7 +216,7 @@
 
   @media (max-width: 1180px) {
     .topbar {
-      grid-template-columns: 1.2fr 0.9fr 2.6fr 0.8fr;
+      grid-template-columns: 1.1fr 0.8fr 4fr 0.8fr;
     }
 
     .brand,
