@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-import Nav from '../components/Nav.astro';
 import Hero from '../components/Hero.astro';
 import TrustSection from '../components/TrustSection.astro';
 import About from '../components/About.astro';
@@ -12,7 +11,86 @@ import Projects from '../components/Projects.astro';
 import Process from '../components/Process.astro';
 import FAQs from '../components/FAQs.astro';
 import Contact from '../components/Contact.astro';
-import Footer from '../components/Footer.astro';
+
+// Estas preguntas deben coincidir exactamente con las de FAQs.astro
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Qué tipo de software desarrolla ADNOVA?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Desarrollamos soluciones digitales a medida para PyMEs, incluyendo sistemas administrativos, control de inventarios, puntos de venta, dashboards, automatización de procesos, páginas web e integraciones entre plataformas.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: '¿Trabajan con negocios pequeños o solo con empresas grandes?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Trabajamos principalmente con PyMEs que buscan optimizar sus procesos, reducir trabajo manual y mejorar el control de su operación. Adaptamos cada solución al tamaño y necesidades de cada negocio.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: '¿Cuánto tiempo tarda el desarrollo de un proyecto?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Depende del alcance y complejidad. Algunos proyectos pueden desarrollarse en pocas semanas, mientras que soluciones más completas requieren varios meses. Antes de iniciar realizamos un diagnóstico para estimar tiempos y entregables.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: '¿Pueden ayudarme a definir la mejor solución para mi negocio?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sí. Analizamos tus procesos, objetivos y desafíos actuales para recomendar la herramienta o sistema que genere el mayor impacto en tu operación.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: '¿El software se adapta a mi negocio o debo cambiar mis procesos?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Nuestro objetivo es desarrollar soluciones alineadas con la operación real de tu empresa. Analizamos tus procesos actuales para diseñar herramientas que se adapten a tus necesidades y objetivos.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: '¿Pueden mejorar un sistema que ya utilizo actualmente?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sí. Podemos realizar mejoras, agregar funcionalidades, automatizar procesos o integrar sistemas existentes para aprovechar la infraestructura que ya utiliza tu negocio.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: '¿Ofrecen soporte después de entregar el proyecto?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sí. Dependiendo del proyecto podemos ofrecer soporte técnico, mantenimiento, corrección de incidencias y mejoras evolutivas para asegurar el correcto funcionamiento de la solución.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: '¿También desarrollan páginas web?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sí. Diseñamos sitios web corporativos, landing pages, catálogos digitales y plataformas personalizadas que ayudan a fortalecer la presencia digital de tu negocio y facilitar el contacto con clientes.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: '¿Cómo puedo solicitar una cotización?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Puedes contactarnos mediante el formulario de la página, correo electrónico o WhatsApp. Revisaremos tus necesidades y te orientaremos sobre la solución más adecuada para tu negocio.'
+      }
+    }
+  ]
+};
 ---
 
 <Layout
@@ -21,7 +99,7 @@ import Footer from '../components/Footer.astro';
   canonical="https://adnovasoftware.com.mx/"
   preloadHero={true}
 >
-  
+  <script slot="schema" type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <main>
     <Hero />
@@ -34,7 +112,6 @@ import Footer from '../components/Footer.astro';
     <Process />
     <FAQs />
     <Contact />
-    
   </main>
 </Layout>
 

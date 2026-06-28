@@ -15,20 +15,54 @@ interface Props {
 }
 
 const {
-  title = 'ADNOVA® | Desarrollo de software para PyMEs',
-  description = 'ADNOVA diseña software a medida, automatización, dashboards e integraciones para PyMEs en México.',
-  canonical = 'https://adnovasoftware.com.mx/',
+  title = 'ADNOVA® | Desarrollo de software para PyMEs en México',
+  description = 'ADNOVA desarrolla software a medida, automatización, dashboards e integraciones para Pequeñas y Medianas empresas en México.',
+  canonical = Astro.url.href,
   ogImage = 'https://adnovasoftware.com.mx/images/hero-adnova.webp',
   preloadHero = false,
   showNav = true,
   showFooter = true
 } = Astro.props;
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': 'https://adnovasoftware.com.mx/#business',
+  name: 'ADNOVA Software Solutions',
+  url: 'https://adnovasoftware.com.mx',
+  logo: 'https://adnovasoftware.com.mx/images/logoADNOVA.png',
+  description:
+    'Empresa de desarrollo de software a medida, automatización, sistemas administrativos, dashboards y páginas web para Pequeñas y Medianas empresas en México.',
+  areaServed: 'México',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Oaxaca de Juárez',
+    addressRegion: 'Oaxaca',
+    addressCountry: 'MX'
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 17.0655,
+    longitude: -96.7195
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+52-951-269-0421',
+    contactType: 'customer service',
+    availableLanguage: ['Spanish']
+  },
+  sameAs: [
+    'https://www.linkedin.com/company/adnovasoftware',
+    'https://www.facebook.com/adnovasoftware'
+  ]
+};
 ---
 
 <!doctype html>
 <html lang="es-MX">
   <head>
     <meta charset="UTF-8" />
+    <meta name="google-site-verification" content="FWxhjK_LlfD1R5lfyR-76hZL-W4QmZXPlSxUxNL7EOI" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>{title}</title>
@@ -36,14 +70,18 @@ const {
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonical} />
 
+    <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_MX" />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="ADNOVA Software Solutions" />
 
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
@@ -64,33 +102,16 @@ const {
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
 
-    <script type="application/ld+json" set:html={JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'ProfessionalService',
-      name: 'ADNOVA Software Solutions',
-      url: 'https://adnovasoftware.com.mx',
-      logo: 'https://adnovasoftware.com.mx/images/logoADNOVA.png',
-      description:
-        'Empresa de desarrollo de software a medida, automatización, sistemas administrativos, dashboards y páginas web para PyMEs en México.',
-      areaServed: 'México',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Oaxaca',
-        addressCountry: 'MX'
-      },
-      contactPoint: {
-        '@type': 'ContactPoint',
-        telephone: '+52-951-269-0421',
-        contactType: 'customer service',
-        availableLanguage: ['Spanish']
-      }
-    })} />
+    <!-- Schema LocalBusiness (todas las páginas) -->
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+
+    <!-- Slot para schemas adicionales por página (FAQPage, Service, etc.) -->
+    <slot name="schema" />
   </head>
 
   <body>
