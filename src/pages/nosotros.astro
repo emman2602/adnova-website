@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Contact from "../components/Contact.astro";
+import Team from "../components/Team.astro";
+import TechMarquee from "../components/TechMarquee.astro";
 
 const focusAreas = [
   "Sistemas administrativos",
@@ -46,13 +48,65 @@ const audiences = [
   "Áreas administrativas",
   "PyMEs en crecimiento",
 ];
+
+const peopleSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://adnovasoftware.com.mx/nosotros#emmanuel-alejandro",
+      name: "Emmanuel Alejandro",
+      jobTitle: "Fundador & Desarrollador Backend",
+      worksFor: {
+        "@id": "https://adnovasoftware.com.mx/#business",
+      },
+      url: "https://adnovasoftware.com.mx/nosotros",
+      knowsAbout: [
+        "Desarrollo backend",
+        "Laravel",
+        "PHP",
+        "Java",
+        "Spring Boot",
+        "PostgreSQL",
+        "MySQL",
+        "APIs REST",
+        "Sistemas administrativos para PyMEs",
+        "Automatización de procesos",
+      ],
+    },
+    {
+      "@type": "Person",
+      "@id": "https://adnovasoftware.com.mx/nosotros#dulce-maria",
+      name: "Dulce María",
+      jobTitle: "Desarrolladora Frontend",
+      worksFor: {
+        "@id": "https://adnovasoftware.com.mx/#business",
+      },
+      url: "https://adnovasoftware.com.mx/nosotros",
+      knowsAbout: [
+        "Desarrollo frontend",
+        "Svelte",
+        "React",
+        "JavaScript",
+        "TypeScript",
+        "Astro",
+        "HTML",
+        "CSS",
+        "Interfaces web",
+        "Diseño responsive",
+      ],
+    },
+  ],
+};
 ---
 
 <Layout
-  title="Nosotros | ADNOVA Software Solutions"
-  description="Conoce ADNOVA, empresa de desarrollo de software enfocada en crear soluciones digitales claras, profesionales y adaptadas a negocios reales."
+  title="Nosotros | ADNOVA Software Solutions — Equipo y misión"
+  description="Conoce el equipo detrás de ADNOVA: empresa de desarrollo de software en Oaxaca, México, enfocada en crear soluciones digitales para PyMEs. Quiénes somos, cómo trabajamos y qué nos diferencia."
   canonical="https://adnovasoftware.com.mx/nosotros"
 >
+  <script slot="schema" type="application/ld+json" set:html={JSON.stringify(peopleSchema)} />
+
   <main class="about-page">
     <section class="about-hero page-shell">
       <div class="hero-copy reveal">
@@ -105,7 +159,11 @@ const audiences = [
       </div>
     </section>
 
-    <section class="split-section dark page-shell">
+    <Team />
+
+    <TechMarquee />
+
+    <section class="split-section soft page-shell">
       <div class="split-copy reveal">
         <span class="eyebrow">02 · Qué hacemos</span>
         <h2>
@@ -260,8 +318,8 @@ const audiences = [
           confianza con los clientes.
         </h2>
         <p>
-          Cada proyecto es una oportunidad para simplificar procesos, 
-          eliminar barreras y entregar una solución que se sienta auténtica, 
+          Cada proyecto es una oportunidad para simplificar procesos,
+          eliminar barreras y entregar una solución que se sienta auténtica,
           profesional y preparada para crecer contigo.
         </p>
         <a href="/#contacto" class="closing-button">
@@ -277,6 +335,12 @@ const audiences = [
 
 <style>
   .about-page {
+    --about-accent: var(--blue);
+    --about-accent-dark: var(--blue-dark);
+    --about-accent-soft: #eaf0ff;
+    --about-dark: var(--black);
+    --about-border: rgba(15, 23, 42, 0.08);
+
     background: var(--bg);
   }
 
@@ -287,20 +351,22 @@ const audiences = [
   }
 
   .about-hero {
-    min-height: calc(100vh - 64px);
+    height: calc(100svh - 64px);
+    min-height: 620px;
+    max-height: 760px;
     display: grid;
     grid-template-columns: 0.58fr 0.42fr;
-    border-left: 1px solid var(--line);
-    border-right: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
+    border-left: 1px solid var(--about-border);
+    border-right: 1px solid var(--about-border);
+    border-bottom: 1px solid var(--about-border);
   }
 
   .hero-copy {
     display: grid;
-    align-content: end;
+    align-content: center;
     gap: 28px;
     padding: 72px 44px;
-    border-right: 1px solid var(--line);
+    border-right: 1px solid var(--about-border);
   }
 
   .eyebrow,
@@ -309,7 +375,7 @@ const audiences = [
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    color: var(--blue);
+    color: var(--about-accent);
     font-size: 12px;
     line-height: 1;
     font-weight: var(--weight-strong);
@@ -326,13 +392,13 @@ const audiences = [
   }
 
   .hero-copy h1 {
-    max-width: 1050px;
+    max-width: 980px;
     margin: 0;
     color: var(--ink);
-    font-size: clamp(44px, 5.6vw, 100px);
-    line-height: 0.96;
+    font-size: clamp(40px, 4.7vw, 78px);
+    line-height: 1;
     font-weight: var(--weight-display);
-    letter-spacing: -0.078em;
+    letter-spacing: -0.07em;
   }
 
   .hero-copy p,
@@ -355,9 +421,18 @@ const audiences = [
   .difference-image,
   .vision-image {
     position: relative;
-    min-height: 680px;
     overflow: hidden;
     background: var(--panel);
+  }
+
+  .hero-visual {
+    min-height: 100%;
+  }
+
+  .split-image,
+  .difference-image,
+  .vision-image {
+    min-height: 680px;
   }
 
   .hero-visual img,
@@ -372,19 +447,20 @@ const audiences = [
 
   .floating-note {
     position: absolute;
-    left: 28px;
-    right: 28px;
-    bottom: 28px;
+    left: 32px;
+    right: 32px;
+    bottom: 32px;
     display: grid;
     gap: 10px;
+    max-width: 560px;
     padding: 22px;
-    background: rgba(248, 247, 245, 0.86);
+    background: rgba(248, 247, 245, 0.92);
     backdrop-filter: blur(16px);
     color: var(--ink);
   }
 
   .floating-note span {
-    color: var(--blue);
+    color: var(--about-accent);
     font-size: 12px;
     font-weight: var(--weight-strong);
     letter-spacing: 0.08em;
@@ -392,9 +468,9 @@ const audiences = [
   }
 
   .floating-note strong {
-    max-width: 320px;
-    font-size: 26px;
-    line-height: 1;
+    max-width: 360px;
+    font-size: clamp(24px, 2vw, 34px);
+    line-height: 0.95;
     font-weight: var(--weight-heading);
     letter-spacing: -0.055em;
   }
@@ -405,9 +481,9 @@ const audiences = [
     grid-template-columns: 0.28fr 0.72fr;
     gap: 86px;
     padding: 96px 34px;
-    border-left: 1px solid var(--line);
-    border-right: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
+    border-left: 1px solid var(--about-border);
+    border-right: 1px solid var(--about-border);
+    border-bottom: 1px solid var(--about-border);
   }
 
   .section-index {
@@ -449,9 +525,9 @@ const audiences = [
     display: grid;
     grid-template-columns: 0.52fr 0.48fr;
     min-height: 680px;
-    border-left: 1px solid var(--line);
-    border-right: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
+    border-left: 1px solid var(--about-border);
+    border-right: 1px solid var(--about-border);
+    border-bottom: 1px solid var(--about-border);
   }
 
   .split-copy,
@@ -463,27 +539,21 @@ const audiences = [
     padding: 70px 34px;
   }
 
-  .dark .split-copy {
-    background: var(--black);
-    color: white;
+  .soft .split-copy {
+    background: var(--panel);
+    color: var(--ink);
   }
 
-  .dark .eyebrow,
-  .vision-panel .eyebrow,
-  .closing-copy .eyebrow {
-    color: #c6d5ff;
+  .soft .split-copy h2 {
+    color: var(--ink);
   }
 
-  .dark h2,
-  .closing-copy h2,
-  .vision-panel h2 {
-    color: white;
+  .soft .split-copy p {
+    color: var(--muted);
   }
 
-  .dark p,
-  .closing-copy p,
-  .vision-panel p {
-    color: rgba(255, 255, 255, 0.7);
+  .soft .split-copy .eyebrow {
+    color: var(--about-accent);
   }
 
   .focus-grid {
@@ -499,12 +569,24 @@ const audiences = [
     display: flex;
     align-items: center;
     padding: 0 22px;
-    background: var(--panel);
+    background: var(--bg);
+    border: 1px solid transparent;
     color: var(--ink);
     font-size: 17px;
     line-height: 1.2;
     font-weight: var(--weight-medium);
     letter-spacing: -0.035em;
+    transition:
+      background 0.25s ease,
+      border-color 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .focus-grid span:hover,
+  .audience-grid span:hover {
+    background: white;
+    border-color: var(--about-border);
+    transform: translateY(-4px);
   }
 
   .workflow-grid {
@@ -521,21 +603,21 @@ const audiences = [
     justify-content: space-between;
     padding: 26px;
     background: var(--panel);
+    border: 1px solid transparent;
     transition:
       background 0.25s ease,
-      color 0.25s ease,
+      border-color 0.25s ease,
       transform 0.25s ease;
   }
 
-  .workflow-card:hover,
-  .audience-grid span:hover {
-    background: var(--black);
-    color: white;
+  .workflow-card:hover {
+    background: white;
+    border-color: var(--about-border);
     transform: translateY(-4px);
   }
 
   .workflow-card > span {
-    color: var(--blue);
+    color: var(--about-accent);
     font-size: 13px;
     font-weight: var(--weight-strong);
     letter-spacing: 0.08em;
@@ -543,7 +625,7 @@ const audiences = [
 
   .workflow-card h3 {
     margin: 0;
-    color: currentColor;
+    color: var(--ink);
     font-size: clamp(24px, 2.2vw, 34px);
     line-height: 1;
     letter-spacing: -0.058em;
@@ -556,16 +638,12 @@ const audiences = [
     line-height: 1.45;
   }
 
-  .workflow-card:hover p {
-    color: rgba(255, 255, 255, 0.72);
-  }
-
   .difference-section {
     grid-template-columns: 0.42fr 0.58fr;
   }
 
   .difference-image {
-    border-right: 1px solid var(--line);
+    border-right: 1px solid var(--about-border);
   }
 
   .difference-copy {
@@ -596,7 +674,7 @@ const audiences = [
     top: 0.62em;
     width: 8px;
     height: 8px;
-    background: var(--blue);
+    background: var(--about-accent);
   }
 
   .audience-section {
@@ -604,9 +682,10 @@ const audiences = [
     grid-template-columns: 0.48fr 0.52fr;
     gap: 70px;
     padding: 96px 34px;
-    border-left: 1px solid var(--line);
-    border-right: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
+    background: var(--bg);
+    border-left: 1px solid var(--about-border);
+    border-right: 1px solid var(--about-border);
+    border-bottom: 1px solid var(--about-border);
   }
 
   .audience-heading {
@@ -626,8 +705,23 @@ const audiences = [
   }
 
   .vision-panel {
-    background: var(--blue);
+    background: var(--about-dark);
     color: white;
+  }
+
+  .vision-panel .eyebrow,
+  .closing-copy .eyebrow {
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .vision-panel h2,
+  .closing-copy h2 {
+    color: white;
+  }
+
+  .vision-panel p,
+  .closing-copy p {
+    color: rgba(255, 255, 255, 0.7);
   }
 
   .panel-link,
@@ -639,8 +733,8 @@ const audiences = [
     justify-content: space-between;
     margin-top: 8px;
     padding: 0 24px;
-    background: white;
-    color: var(--blue);
+    background: var(--about-accent);
+    color: white;
     font-size: 16px;
     font-weight: var(--weight-medium);
     text-decoration: none;
@@ -651,7 +745,7 @@ const audiences = [
 
   .panel-link:hover,
   .closing-button:hover {
-    background: #eaf0ff;
+    background: var(--about-accent-dark);
     transform: translateY(-2px);
   }
 
@@ -663,25 +757,16 @@ const audiences = [
 
   .closing-section {
     padding: 100px 34px;
-    border-left: 1px solid var(--line);
-    border-right: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    background: var(--black);
+    background: var(--about-dark);
     color: white;
+    border-left: 1px solid var(--about-border);
+    border-right: 1px solid var(--about-border);
+    border-bottom: 1px solid var(--about-border);
   }
 
   .closing-copy {
     display: grid;
     gap: 28px;
-  }
-
-  .closing-button {
-    background: var(--blue);
-    color: white;
-  }
-
-  .closing-button:hover {
-    background: var(--blue-dark);
   }
 
   @media (max-width: 1100px) {
@@ -698,6 +783,19 @@ const audiences = [
     .hero-copy,
     .difference-image {
       border-right: 0;
+    }
+
+    .about-hero {
+      height: auto;
+      min-height: auto;
+      max-height: none;
+    }
+
+    .hero-copy {
+      min-height: auto;
+      align-content: center;
+      padding-top: 80px;
+      padding-bottom: 72px;
     }
 
     .hero-visual,
@@ -739,13 +837,15 @@ const audiences = [
     }
 
     .hero-copy {
-      padding-top: 56px;
+      min-height: auto;
+      padding-top: 64px;
       padding-bottom: 56px;
     }
 
     .hero-copy h1 {
-      font-size: clamp(40px, 11vw, 64px);
+      font-size: clamp(38px, 10vw, 58px);
       line-height: 1;
+      letter-spacing: -0.065em;
     }
 
     .hero-visual,
@@ -761,6 +861,12 @@ const audiences = [
     .closing-section {
       padding-top: 68px;
       padding-bottom: 68px;
+    }
+
+    .intro-section,
+    .workflow-section,
+    .audience-section {
+      gap: 38px;
     }
 
     .split-copy,
@@ -788,6 +894,7 @@ const audiences = [
       left: 20px;
       right: 20px;
       bottom: 20px;
+      max-width: none;
     }
   }
 </style>

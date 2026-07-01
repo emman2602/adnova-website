@@ -1,0 +1,334 @@
+---
+// src/components/Team.astro
+// E-E-A-T: muestra quiénes están detrás de ADNOVA.
+// Fotos recomendadas:
+// /public/images/team/emmanuel.webp
+// /public/images/team/dulce.webp
+
+const members = [
+  {
+    name: "Dulce María",
+    role: "Fundadora & Desarrolladora Frontend",
+    bio: "Desarrolladora frontend enfocada en crear interfaces claras, modernas y funcionales para sitios web y plataformas digitales. En ADNOVA se encarga de la experiencia visual, componentes interactivos, maquetación responsive y desarrollo del lado del cliente.",
+    stack: [
+      "Svelte",
+      "React",
+      "Laravel",
+      "JavaScript",
+      "TypeScript",
+      "Astro",
+      "HTML",
+      "CSS",
+    ],
+    photo: "/images/dulce.jpeg",
+    initials: "DM",
+    linkedin: "",
+  },
+  {
+    name: "Emmanuel Alejandro",
+    role: "Fundador & Desarrollador Backend",
+    bio: "Desarrollador backend enfocado en sistemas web, APIs, automatización de procesos, arquitectura de aplicaciones y soluciones administrativas para PyMEs. En ADNOVA se encarga de la lógica del negocio, bases de datos, seguridad, integraciones y desarrollo del lado del servidor.",
+    stack: [
+      "Laravel",
+      "PHP",
+      "Java",
+      "Spring Boot",
+      "PostgreSQL",
+      "MySQL",
+      "APIs REST",
+    ],
+    photo: "/images/team/emmanuel.webp",
+    initials: "EA",
+    linkedin: "",
+  },
+];
+---
+
+<section class="team-section source-container reveal">
+  <div class="team-heading">
+    <span class="team-kicker">Equipo</span>
+
+    <h2>Las personas detrás de cada proyecto.</h2>
+
+    <p>
+      En ADNOVA combinamos backend, frontend y criterio de negocio para construir
+      soluciones digitales claras, funcionales y pensadas para operaciones reales.
+    </p>
+  </div>
+
+  <div class="team-grid">
+    {
+      members.map((member, index) => (
+        <article class="member-card stagger-item" style={`--i:${index}`}>
+          <div class="member-photo">
+            {
+              member.photo ? (
+                <img
+                  src={member.photo}
+                  alt={`${member.name} — ${member.role} en ADNOVA Software Solutions`}
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                  decoding="async"
+                />
+              ) : (
+                <div class="member-initials">{member.initials}</div>
+              )
+            }
+          </div>
+
+          <div class="member-info">
+            <div class="member-meta">
+              <h3>{member.name}</h3>
+              <span class="member-role">{member.role}</span>
+            </div>
+
+            <p class="member-bio">{member.bio}</p>
+
+            <div class="member-stack" aria-label={`Tecnologías que maneja ${member.name}`}>
+              {
+                member.stack.map((tech) => (
+                  <span class="tech-tag">{tech}</span>
+                ))
+              }
+            </div>
+
+            {
+              member.linkedin && (
+                <a
+                  href={member.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="member-linkedin"
+                  aria-label={`Perfil de LinkedIn de ${member.name}`}
+                >
+                  Ver perfil en LinkedIn ↗
+                </a>
+              )
+            }
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .team-section {
+    padding: 92px 34px 96px;
+    background: var(--bg);
+    border-left: 1px solid var(--about-border, var(--line));
+    border-right: 1px solid var(--about-border, var(--line));
+    border-bottom: 1px solid var(--about-border, var(--line));
+  }
+
+  .team-heading {
+    display: grid;
+    grid-template-columns: 0.42fr 0.58fr;
+    gap: 24px 80px;
+    align-items: end;
+    margin-bottom: 56px;
+  }
+
+  .team-kicker {
+    grid-column: 1 / -1;
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--about-accent, var(--blue));
+    font-size: 12px;
+    font-weight: var(--weight-strong);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .team-kicker::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: currentColor;
+  }
+
+  .team-heading h2 {
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(36px, 4vw, 68px);
+    line-height: 1;
+    font-weight: var(--weight-heading);
+    letter-spacing: -0.065em;
+  }
+
+  .team-heading p {
+    max-width: 560px;
+    margin: 0;
+    color: var(--muted);
+    font-size: var(--text-body-lg);
+    line-height: 1.45;
+    font-weight: var(--weight-body);
+    letter-spacing: -0.02em;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  .member-card {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 0;
+    background: var(--panel);
+    border: 1px solid transparent;
+    transition:
+      background 0.3s ease,
+      border-color 0.3s ease,
+      transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .member-card:hover {
+    background: white;
+    border-color: var(--about-border, var(--line));
+    transform: translateY(-4px);
+  }
+
+  .member-photo {
+    position: relative;
+    min-height: 300px;
+    overflow: hidden;
+    background: var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .member-photo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: top center;
+    filter: grayscale(0.12);
+    transition: filter 0.35s ease;
+  }
+
+  .member-card:hover .member-photo img {
+    filter: grayscale(0);
+  }
+
+  .member-initials {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background: var(--about-accent, var(--blue));
+    color: white;
+    font-size: 28px;
+    font-weight: var(--weight-heading);
+    letter-spacing: -0.04em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .member-info {
+    display: grid;
+    align-content: start;
+    gap: 18px;
+    padding: 28px 24px;
+  }
+
+  .member-meta {
+    display: grid;
+    gap: 6px;
+  }
+
+  .member-info h3 {
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(22px, 2vw, 30px);
+    line-height: 1;
+    font-weight: var(--weight-heading);
+    letter-spacing: -0.055em;
+  }
+
+  .member-role {
+    color: var(--about-accent, var(--blue));
+    font-size: 13px;
+    line-height: 1.25;
+    font-weight: var(--weight-strong);
+    letter-spacing: 0.04em;
+  }
+
+  .member-bio {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.55;
+    font-weight: var(--weight-body);
+    letter-spacing: -0.01em;
+  }
+
+  .member-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tech-tag {
+    padding: 6px 10px;
+    background: var(--about-accent-soft, #eaf0ff);
+    color: var(--about-accent, var(--blue));
+    font-size: 12px;
+    line-height: 1.2;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  .member-linkedin {
+    width: fit-content;
+    color: var(--about-accent, var(--blue));
+    font-size: 14px;
+    font-weight: var(--weight-medium);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: opacity 0.2s ease;
+  }
+
+  .member-linkedin:hover {
+    opacity: 0.72;
+  }
+
+  @media (max-width: 1300px) {
+    .team-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 1100px) {
+    .team-heading {
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .team-section {
+      padding: 70px 20px 76px;
+      border-left: 0;
+      border-right: 0;
+    }
+
+    .team-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .member-card {
+      grid-template-columns: 1fr;
+    }
+
+    .member-photo {
+      min-height: 320px;
+    }
+  }
+</style>

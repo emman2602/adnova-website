@@ -1,0 +1,504 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Contact from "../components/Contact.astro";
+
+const projects = [
+  {
+    status: "Proyecto interno",
+    sector: "Presencia digital",
+    title: "Sitio web corporativo ADNOVA",
+    summary:
+      "Sitio web empresarial desarrollado para presentar servicios, generar confianza digital y facilitar el contacto con clientes potenciales.",
+    problem:
+      "ADNOVA necesitaba una presencia digital profesional, rápida, clara y preparada para SEO local, sin depender únicamente de redes sociales.",
+    solution:
+      "Se desarrolló un sitio estático con estructura modular, páginas informativas, formulario de contacto, aviso de privacidad, sitemap y datos estructurados para buscadores.",
+    result:
+      "El sitio permite comunicar servicios, captar solicitudes de diagnóstico y reforzar señales de confianza como equipo, contacto, aviso de privacidad y estructura SEO.",
+    features: [
+      "Diseño responsive",
+      "SEO técnico base",
+      "Sitemap automático",
+      "Formulario de contacto",
+      "Aviso de privacidad",
+      "Schema LocalBusiness, FAQPage y Person"
+    ],
+    stack: ["Astro", "HTML", "CSS", "JavaScript", "Formspree", "Schema JSON-LD"],
+    imageUrl: "/images/pagina_empresarial.webp",
+    alt: "Sitio web corporativo desarrollado para ADNOVA Software Solutions",
+    position: "top center"
+  },
+  {
+    status: "Proyecto en desarrollo",
+    sector: "Plataforma privada",
+    title: "Catálogo privado de productores",
+    summary:
+      "Plataforma web privada para administrar productores, productos agropecuarios, categorías, filtros, contactos y métricas operativas.",
+    problem:
+      "El proyecto requería organizar información de productores y productos en una plataforma privada con acceso controlado, filtros y administración centralizada.",
+    solution:
+      "Se planteó una arquitectura con autenticación, roles de usuario, panel administrativo, módulos de productores, productos, favoritos, filtros y seguimiento de contactos.",
+    result:
+      "La plataforma busca facilitar la consulta de productores y productos, mejorar la administración de información y dar visibilidad a interacciones clave dentro del sistema.",
+    features: [
+      "Autenticación de usuarios",
+      "Roles y permisos",
+      "Gestión de productores",
+      "Gestión de productos",
+      "Filtros por categorías",
+      "Favoritos",
+      "Métricas de contacto"
+    ],
+    stack: ["Laravel", "PHP", "PostgreSQL", "Svelte", "JavaScript", "GitHub"],
+    imageUrl: "/images/administrativo.webp",
+    alt: "Panel administrativo para catálogo privado de productores",
+    position: "center center"
+  },
+  {
+    status: "Proyecto demostrativo",
+    sector: "Administración PyME",
+    title: "Sistema administrativo e inventario",
+    summary:
+      "Demo de sistema interno para PyMEs que necesitan centralizar productos, clientes, ventas, usuarios, inventario y reportes.",
+    problem:
+      "Muchos negocios operan con hojas de cálculo, mensajes dispersos y procesos manuales difíciles de supervisar, lo que provoca errores y poca visibilidad.",
+    solution:
+      "Se diseñó una plataforma administrativa con módulos conectados para controlar productos, usuarios, clientes, proveedores, ventas, inventario y reportes.",
+    result:
+      "El sistema demuestra cómo una PyME puede ordenar su operación diaria y consultar información clave desde un solo entorno.",
+    features: [
+      "Login de usuarios",
+      "Control de productos",
+      "Clientes y proveedores",
+      "Ventas e inventario",
+      "Reportes operativos",
+      "Panel administrativo"
+    ],
+    stack: ["Laravel", "PHP", "PostgreSQL", "JavaScript", "APIs REST"],
+    imageUrl: "/images/sistema_admin.webp",
+    alt: "Sistema administrativo e inventario para PyMEs",
+    position: "center center"
+  }
+];
+
+const projectsSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Proyectos de ADNOVA Software Solutions",
+  description:
+    "Proyectos internos, demostrativos y plataformas en desarrollo de ADNOVA Software Solutions.",
+  url: "https://adnovasoftware.com.mx/proyectos",
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: projects.map((project, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "CreativeWork",
+        name: project.title,
+        description: project.summary,
+        creator: {
+          "@id": "https://adnovasoftware.com.mx/#business"
+        }
+      }
+    }))
+  }
+};
+---
+
+<Layout
+  title="Proyectos | ADNOVA Software Solutions"
+  description="Conoce proyectos internos, demostrativos y plataformas en desarrollo de ADNOVA: sitios web, sistemas administrativos, automatización y plataformas para PyMEs."
+  canonical="https://adnovasoftware.com.mx/proyectos"
+>
+  <script slot="schema" type="application/ld+json" set:html={JSON.stringify(projectsSchema)} />
+
+  <main class="projects-page">
+    <section class="projects-hero page-shell">
+      <div class="projects-hero-copy reveal">
+        <span class="eyebrow">Proyectos</span>
+        <h1>Soluciones construidas con enfoque técnico y visión de negocio.</h1>
+        <p>
+          Una selección de proyectos internos, demostrativos y plataformas en
+          desarrollo que muestran cómo trabajamos: entender el problema,
+          diseñar una solución clara y construir herramientas útiles.
+        </p>
+      </div>
+    </section>
+
+    <section class="projects-list page-shell">
+      {
+        projects.map((project, index) => (
+          <article class:list={["project-detail", index % 2 === 1 && "is-reversed"]}>
+            <div class="project-media reveal-image">
+              <img
+                src={project.imageUrl}
+                alt={project.alt}
+                loading="lazy"
+                decoding="async"
+                style={`object-position: ${project.position};`}
+              />
+
+              <span>{project.status}</span>
+            </div>
+
+            <div class="project-content reveal">
+              <span class="eyebrow">{project.sector}</span>
+              <h2>{project.title}</h2>
+              <p class="project-summary">{project.summary}</p>
+
+              <div class="project-info-grid">
+                <div>
+                  <h3>Problema</h3>
+                  <p>{project.problem}</p>
+                </div>
+
+                <div>
+                  <h3>Solución</h3>
+                  <p>{project.solution}</p>
+                </div>
+
+                <div>
+                  <h3>Resultado</h3>
+                  <p>{project.result}</p>
+                </div>
+              </div>
+
+              <div class="project-features">
+                <h3>Qué incluye</h3>
+
+                <ul>
+                  {
+                    project.features.map((feature) => (
+                      <li>{feature}</li>
+                    ))
+                  }
+                </ul>
+              </div>
+
+              <div class="project-stack">
+                {
+                  project.stack.map((tech) => (
+                    <span>{tech}</span>
+                  ))
+                }
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </section>
+
+    <Contact />
+  </main>
+</Layout>
+
+<style>
+  .projects-page {
+    background: var(--bg);
+  }
+
+  .page-shell {
+    width: calc(100% - 64px);
+    max-width: 1820px;
+    margin: 0 auto;
+  }
+
+  .projects-hero {
+    min-height: 560px;
+    display: grid;
+    align-items: end;
+    padding: 96px 34px;
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .projects-hero-copy {
+    max-width: 1180px;
+    display: grid;
+    gap: 28px;
+  }
+
+  .eyebrow {
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--blue);
+    font-size: 12px;
+    line-height: 1;
+    font-weight: var(--weight-strong);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: currentColor;
+  }
+
+  .projects-hero h1 {
+    max-width: 1120px;
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(44px, 5.6vw, 96px);
+    line-height: 0.96;
+    font-weight: var(--weight-display);
+    letter-spacing: -0.078em;
+  }
+
+  .projects-hero p {
+    max-width: 760px;
+    margin: 0;
+    color: var(--muted);
+    font-size: var(--text-body-lg);
+    line-height: 1.5;
+    font-weight: var(--weight-body);
+    letter-spacing: -0.02em;
+  }
+
+  .projects-list {
+    display: grid;
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+  }
+
+  .project-detail {
+    display: grid;
+    grid-template-columns: 0.42fr 0.58fr;
+    min-height: 720px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .project-detail.is-reversed {
+    grid-template-columns: 0.58fr 0.42fr;
+  }
+
+  .project-detail.is-reversed .project-media {
+    order: 2;
+  }
+
+  .project-media {
+    position: relative;
+    overflow: hidden;
+    background: var(--panel);
+    border-right: 1px solid var(--line);
+  }
+
+  .project-detail.is-reversed .project-media {
+    border-right: 0;
+    border-left: 1px solid var(--line);
+  }
+
+  .project-media img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .project-media span {
+    position: absolute;
+    left: 28px;
+    bottom: 28px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 0 14px;
+    background: rgba(248, 247, 245, 0.92);
+    color: var(--blue);
+    font-size: 12px;
+    line-height: 1;
+    font-weight: var(--weight-strong);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    backdrop-filter: blur(12px);
+  }
+
+  .project-content {
+    display: grid;
+    align-content: center;
+    gap: 28px;
+    padding: 70px 34px;
+  }
+
+  .project-content h2 {
+    max-width: 980px;
+    margin: 0;
+    color: var(--ink);
+    font-size: var(--text-section);
+    line-height: 1;
+    font-weight: var(--weight-heading);
+    letter-spacing: -0.065em;
+  }
+
+  .project-summary {
+    max-width: 780px;
+    margin: 0;
+    color: var(--muted);
+    font-size: var(--text-body-lg);
+    line-height: 1.45;
+    font-weight: var(--weight-body);
+    letter-spacing: -0.02em;
+  }
+
+  .project-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+  }
+
+  .project-info-grid div {
+    min-height: 220px;
+    display: grid;
+    align-content: start;
+    gap: 14px;
+    padding: 22px;
+    background: var(--panel);
+  }
+
+  .project-info-grid h3,
+  .project-features h3 {
+    margin: 0;
+    color: var(--blue);
+    font-size: 12px;
+    line-height: 1;
+    font-weight: var(--weight-strong);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .project-info-grid p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .project-features {
+    display: grid;
+    gap: 16px;
+  }
+
+  .project-features ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .project-features li {
+    position: relative;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px 0 36px;
+    background: var(--panel);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.25;
+  }
+
+  .project-features li::before {
+    content: "";
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    width: 7px;
+    height: 7px;
+    background: var(--blue);
+    transform: translateY(-50%);
+  }
+
+  .project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .project-stack span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    padding: 0 11px;
+    background: var(--black);
+    color: white;
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  @media (max-width: 1200px) {
+    .project-detail,
+    .project-detail.is-reversed {
+      grid-template-columns: 1fr;
+    }
+
+    .project-detail.is-reversed .project-media {
+      order: 0;
+    }
+
+    .project-media,
+    .project-detail.is-reversed .project-media {
+      min-height: 520px;
+      border-left: 0;
+      border-right: 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .project-info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .project-info-grid div {
+      min-height: auto;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .page-shell {
+      width: 100%;
+    }
+
+    .projects-hero,
+    .projects-list {
+      border-left: 0;
+      border-right: 0;
+    }
+
+    .projects-hero {
+      min-height: auto;
+      padding: 72px 20px;
+    }
+
+    .projects-hero h1 {
+      font-size: clamp(40px, 11vw, 64px);
+      line-height: 1;
+    }
+
+    .project-media,
+    .project-detail.is-reversed .project-media {
+      min-height: 320px;
+    }
+
+    .project-media span {
+      left: 20px;
+      bottom: 20px;
+    }
+
+    .project-content {
+      padding: 56px 20px;
+    }
+
+    .project-features ul {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
